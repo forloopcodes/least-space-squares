@@ -10,7 +10,9 @@ from .constructions import Packing, best_analytic, analytic_candidates
 from .blocks import tilted_block_search
 from .solver import pack, solve, Solution
 from .known import best_known, RECORDS
+from .families import family_sqrt7, family_devincentis, family_wainwright, family_schadt
 
 __all__ = ["pack", "solve", "Solution", "verify", "repair", "Packing", "best_analytic",
-           "analytic_candidates", "tilted_block_search", "best_known", "RECORDS"]
+           "analytic_candidates", "tilted_block_search", "best_known", "RECORDS",
+           "family_sqrt7", "family_devincentis", "family_wainwright", "family_schadt"]
 __version__ = "0.1.0"
