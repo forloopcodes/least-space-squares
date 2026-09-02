@@ -159,7 +159,7 @@ def solve(n: int, time_budget: float = 0.0, use_cache: bool = True, use_blocks: 
         update_cache(best)
     exact = best.exact
     form = exact_form(best.s)
-    if form and form not in exact:
+    if form and form not in exact and "sqrt" not in exact and "/" not in exact:
         exact = f"{exact} = {form}" if exact else form
     return Solution(n, float(best.s), np.asarray(best.squares, float), best.method, exact,
                     lower, best_known(n), proved or abs(best.s - lower) < 1e-12)

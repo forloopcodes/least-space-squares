@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import signal
 import sys
 
 from .render import save_svg
@@ -40,4 +41,8 @@ def main(argv=None) -> int:
 
 
 if __name__ == "__main__":
+    try:
+        signal.signal(signal.SIGPIPE, signal.SIG_DFL)  # let `| head` end the output quietly
+    except (AttributeError, ValueError):
+        pass
     sys.exit(main())
