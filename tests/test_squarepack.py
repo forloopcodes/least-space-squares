@@ -195,4 +195,4 @@ def test_block_seed_pool_and_block_seeds_run():
     assert pool and all(p.n >= 26 for p in pool)
     assert _block_shape(pool[0]) is not None or pool[0].method != "tilted_block"
     r = search(26, time_budget=6.0, seed=0, seed_mix=("block",))
-    assert verify(r.packing.s, r.packing.squares).ok and r.packing.s <= 3.5 + 1.5 * SQRT2 + 1e-9
+    assert verify(r.packing.s, r.packing.squares).ok and r.packing.s <= best_analytic(26).s + 1e-9
