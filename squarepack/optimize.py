@@ -460,6 +460,21 @@ def seed_analytic_random_drop(n: int, rng) -> Config:
 _BLOCK_POOLS: dict = {}
 
 
+def _block_shape(pk: Packing):
+    """(p, q) of a tilted-block packing, for both the legacy ``meta["p"]`` and the
+    ``meta["params"] = [p, q, dx, dy, angle, shear]`` layouts of :mod:`squarepack.blocks`."""
+    m = pk.meta or {}
+    if "p" in m and "q" in m:
+        return int(m["p"]), int(m["q"])
+    params = m.get("params")
+    if not params and m.get("spec"):
+        params = m["spec"][0]
+    try:
+        return int(round(params[0])), int(round(params[1]))
+    except (TypeError, IndexError, ValueError):
+        return None
+
+
 def block_seed_pool(n: int, extra: int = 2, per_n: int = 2) -> List[Packing]:
     """Structured seeds: the best tilted-block members (several block shapes) for ``n`` and for
     the next few larger ``n`` (their surplus squares are dropped at random by :func:`seed_block`).
@@ -483,7 +498,11 @@ def block_seed_pool(n: int, extra: int = 2, per_n: int = 2) -> List[Packing]:
             pk = tilted_block_search(m, s_max=s_max, shapes=shapes, offsets=(-0.5, 0.0, 0.5))
             if pk is None:
                 break
-            seen.add((pk.meta["p"], pk.meta["q"]))
+            shape = _block_shape(pk)
+            if shape is None:
+                pool.append(pk)
+                break
+            seen.add(shape)
             pool.append(pk)
         for pk in analytic_candidates(m)[:2]:
             if pk.method != "grid":
