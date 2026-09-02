@@ -63,6 +63,9 @@ verified, the smallest side wins. The literature table (`squarepack.known`) is u
 | 5 | **tilted block + row fill** | a `p×q` block at 45° at offset `(dx,dy)` (multiples of ¼) from the centre; the rest filled by unit rows anchored to the bottom or top wall with an independent seam on each side of the block; exact `s` by vectorised bisection | O(s · #offsets · log 1/ε) ≈ 0.1–10 s | reproduces 2–4 **and** the Friedman/Stenlund records 26 (`7/2+3√2/2`), 66 (`3+4√2`), 85 (`11/2+3√2`), 150, 202; near-records for 18, 19, 37, 50, 53, 54, 102, 123 |
 | 6 | **numerical compaction** | penalty energy `E = Σ max(0,p_ij)² + Σ max(0,v_i)²` (separating-axis penetration depth `p_ij`, protrusion `v_i`), analytic gradient, L-BFGS in C; shrink `s` by bisection, basin hopping when stuck, exact repair at the end | budgeted (thousands of local optimisations per minute) | 11 (Trump's record from random seeds in < 1 min), 18, 19, 29, 41, … |
 | 6b | **penalty continuation** | `s` as a variable, minimise `s + μE` for `μ → ∞` | budgeted | faster descent, less precise; used as a variant of 6 |
+| 7 | **√7 family** (`families.py`) | staircases anchored at opposite corners plus a band of 1×2 dominoes at angle `arctan((4−√7)/3)`, each squeezed between two staircase corners exactly 2 apart: `s = m − 1/2 + √7/2` | O(n) | 18, 53, 86, 127, 151, 176, 204, 234, 299 (all records of this form) |
+| 8 | **DeVincentis family** | `s = 7 − √2/2 + √(1+√2) + 3k`, `n = 9k² + 44k + 54` | O(n) | 54, 107, 178, 267, … |
+| 9 | **special exact packings** | Wainwright's 19 (`3 + 4√2/3`), Schadt's 50 (`7 + 4/7`) and 171 (`13 + 4/7`), obtained by transcribing and generalising the published drawings (`scripts/svg_to_packing.py` extracts exact coordinates from the record SVGs) | O(n) | 19, 50, 171, 198 |
 
 ### 2.1 Geometry kernel (`squarepack/geometry.py`)
 
@@ -96,6 +99,16 @@ the left and right sides may choose different seams — this is exactly what mak
 the 26/66/85 records. The count is exact for the chosen structure and is evaluated for all
 offsets at once in numpy; the smallest `s` per shape/offset comes from a 42-step bisection.
 Every result is passed through `repair` and verified.
+
+The engine was then generalised (`results/blocks_ext.md`): the obstacle may be a *union* of convex
+pieces (two half-turn-symmetric blocks, S/W-bent strips with corner pivots, row-shifted "sheared"
+blocks, chains of parallel rows with per-row tilt kept in exact contact), the block angle is free,
+and all candidates of a family are bisected at once (batched branch-and-bound, ~10× faster: every
+n ≤ 300 in under 10 s). Fed with the exact tilted squares of the published drawings the fill
+engine reproduces the fills of the 18, 19, 37, 50, 54, 70, 87, 88 and 123 records, but rigid
+approximations of those structures are never better than the plain 45° block, so the search
+itself did not gain new record matches — the missing records need several coordinated continuous
+moves, which is what the numerical search is for.
 
 ### 2.4 Numerical search (`optimize.py`, `_fastcore.c`)
 
