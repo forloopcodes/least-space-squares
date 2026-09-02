@@ -221,6 +221,7 @@ Values of n (≤ 100) still above the literature record after this budget, with 
 
 Over n = 1..324 the analytic part alone (closed forms + tilted-block search, no numerical search)
 matches 244 of the 324 record values — 235 from the closed-form families, 9 more from the block
-engine (`results/block_sweep.md`; median 1.6 s per n, worst 33 s, on one core). The 80
+engine (`results/block_sweep.md`; most n are settled by the closed forms in milliseconds, the block
+search takes 1–7 s for n ≤ 250 and up to 33 s near n = 300, on one core). The 80
 remaining records are irregular packings found by multi-day simulated-annealing runs (Trump's 11,
 Bidwell's 17, Schadt's and Ellsworth's 2024–2026 records) whose structure no closed form captures.
