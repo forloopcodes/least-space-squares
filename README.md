@@ -108,9 +108,17 @@ Every result is passed through `repair` and verified.
   random places, rotate, swap, move the worst square into the emptiest spot, global shake), then
   halve the step; the fine phase below 5e-4·s is a pure bisection.
 * `search` = compact the incumbent (¼ of the budget), then cycle through seed types
-  (analytic member, analytic member with random squares dropped, jittered grid, uniform random),
-  each made feasible by enlarging `s` if necessary and then compacted. Improvements are accepted
-  only if they pass `verify` after `repair`.
+  (analytic member, analytic member with random squares dropped, jittered grid, uniform random,
+  and *block seeds*: tilted-block members for n..n+2 with random squares dropped and re-inserted
+  into the largest holes), each made feasible by enlarging `s` if necessary and then compacted.
+  Improvements are accepted only if they pass `verify` after `repair`.
+* Variants that were implemented and benchmarked against each other (`results/search_tuning.md`):
+  a C simulated-annealing kernel (`strategy="anneal"` / `"anneal-hop"`, single-square Metropolis
+  moves with container shrink, ~2 M moves/s), an extended basin-hopping move set
+  (`perturb_mix="extended"`: reinsert-into-hole, swap+rotate, row/column shifts, 45° cluster
+  rotation) and an angle-snapping polish (`snap=True`). At 30–60 s budgets only the block seeds
+  are a consistent win (mean gap to the records on the hard set 0.037 → 0.027), so they are the
+  default; the others stay available for long runs.
 
 ## 3. Complexity
 
