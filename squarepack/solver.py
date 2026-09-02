@@ -57,8 +57,20 @@ def _load_cache(path: Path = CACHE_FILE) -> Dict[int, Packing]:
         return out
 
 
-def cached(n: int) -> Optional[Packing]:
-    return _load_cache().get(n)
+def cached(n: int, look_ahead: int = 12) -> Optional[Packing]:
+    """Best cached packing usable for ``n``.
+
+    Removing squares keeps a packing valid, so a cached packing of ``m > n`` squares
+    with a smaller side also serves ``n`` (monotonicity ``s(n) <= s(m)``); the
+    ``look_ahead`` nearest larger ``m`` are considered.
+    """
+    cache = _load_cache()
+    best = cache.get(n)
+    for m in range(n + 1, n + look_ahead + 1):
+        p = cache.get(m)
+        if p is not None and (best is None or p.s < best.s - 1e-12):
+            best = p.take(n)
+    return best
 
 
 def update_cache(p: Packing, path: Path = CACHE_FILE, only_if_better: bool = True) -> bool:

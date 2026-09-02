@@ -34,6 +34,7 @@ import numpy as np  # noqa: E402
 
 from squarepack.blocks import tilted_block_search  # noqa: E402
 from squarepack.constructions import best_analytic, grid  # noqa: E402
+from squarepack.exact import exact_form  # noqa: E402
 from squarepack.geometry import verify  # noqa: E402
 from squarepack.known import best_known, is_proved  # noqa: E402
 from squarepack.solver import cached, update_cache  # noqa: E402
@@ -87,9 +88,10 @@ def write_markdown(rows, path: Path, budget: float):
     for r in rows:
         bk = r["best_known"]
         gap = "" if bk is None else f"{r['best']['s'] - bk:+.6f}"
+        form = exact_form(r["best"]["s"]) or ""
         lines.append(f"| {r['n']} | {r['grid']['s']:.4f} | {r['closed_form']['s']:.6f} | {r['tilted_block']['s']:.6f} | "
                      f"{r['numeric']['s']:.6f} | **{r['best']['s']:.6f}** | {'' if bk is None else f'{bk:.6f}'} | {gap} | "
-                     f"{'yes' if r['proved'] else ''} | {r['best']['method']} | {r['tilted_block']['time']:.1f} | {r['numeric']['time']:.1f} |")
+                     f"{'yes' if r['proved'] else ''} | {r['best']['method']} {form} | {r['tilted_block']['time']:.1f} | {r['numeric']['time']:.1f} |")
     nn = len(rows)
     def cnt(key):
         return sum(1 for r in rows if r["best_known"] is not None and r[key]["s"] <= r["best_known"] + 1e-9)
@@ -135,7 +137,23 @@ def main():
                 p = Packing(n, r["packing"]["s"], np.asarray(r["packing"]["squares"]), r["packing"]["method"], r["packing"]["exact"])
                 if update_cache(p):
                     print(f"          cached n={n} s={p.s:.10f}", flush=True)
+    # monotonicity pass: s(n) <= s(m) for m > n, so a better packing of m squares (minus m - n
+    # of them) also serves n; propagate downwards and cache the result
+    from squarepack.constructions import Packing
     ordered = [rows[n] for n in sorted(rows)]
+    for i in range(len(ordered) - 2, -1, -1):
+        r, nxt = ordered[i], ordered[i + 1]
+        if nxt["best"]["s"] < r["best"]["s"] - 1e-9 and nxt["best"]["valid"]:
+            p = Packing(nxt["n"], nxt["packing"]["s"], np.asarray(nxt["packing"]["squares"]),
+                        f"monotone from n={nxt['n']}", nxt["packing"]["exact"]).take(r["n"])
+            rep = verify(p.s, p.squares, 1e-9)
+            if rep.ok:
+                r["best"] = {"s": p.s, "method": p.method, "exact": p.exact, "valid": True,
+                             "max_penetration": rep.max_penetration, "max_outside": rep.max_outside}
+                r["packing"] = {"s": p.s, "method": p.method, "exact": p.exact, "squares": p.squares.tolist()}
+                print(f"monotone: n={r['n']} improved to {p.s:.8f} from n={nxt['n']}", flush=True)
+                if a.save:
+                    update_cache(p)
     slim = [{k: v for k, v in r.items() if k != "packing"} for r in ordered]
     (out / "benchmark.json").write_text(json.dumps(slim, indent=1))
     write_markdown(ordered, out / "benchmark.md", a.budget)
