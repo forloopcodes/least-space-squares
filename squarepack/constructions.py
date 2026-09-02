@@ -29,6 +29,11 @@ add_L
     A packing of side ``s`` becomes a packing of side ``s + 1`` holding
     ``floor(s + 1) + floor(s)`` more squares (a row on top and a column on the
     right).  Used to extend any family member to larger ``n``.
+
+The single-angle record families of :mod:`squarepack.families` (the sqrt(7)
+family of Hämäläinen/Friedman: 18, 53, 86, 127, ...; DeVincentis' family:
+54, 107, 178, 267, ...; Wainwright's 19; Schadt's 50 and 171) are part of the
+portfolio of :func:`analytic_candidates` as well.
 """
 from __future__ import annotations
 
@@ -227,8 +232,10 @@ def add_L(p: Packing) -> Packing:
 # --------------------------------------------------------------------------- #
 def _base_members(n: int) -> List[Packing]:
     """Family members (full, not truncated) with side below the grid side for n."""
+    from .families import family_members_below   # lazy: families imports this module
+
     s_grid = grid(n).s
-    out: List[Packing] = []
+    out: List[Packing] = list(family_members_below(s_grid, n))
     a = 1
     while a + 1 + SQRT2 / 2 < s_grid:
         out.append(gobel_strip_member(a))
@@ -267,8 +274,21 @@ def best_analytic(n: int) -> Packing:
     return analytic_candidates(n)[0]
 
 
+def _family(name: str) -> Callable[[int], Optional[Packing]]:
+    def f(n: int) -> Optional[Packing]:
+        from . import families
+        return families.FAMILIES[name](n)
+    f.__name__ = f"family_{name}"
+    f.__doc__ = f"Smallest member of the {name} family (squarepack.families) holding n squares."
+    return f
+
+
 CONSTRUCTIONS: Dict[str, Callable[[int], Optional[Packing]]] = {
     "grid": grid,
     "gobel_strip": gobel_strip,
     "gobel_square": gobel_square,
+    "sqrt7": _family("sqrt7"),
+    "devincentis": _family("devincentis"),
+    "wainwright": _family("wainwright"),
+    "schadt": _family("schadt"),
 }
