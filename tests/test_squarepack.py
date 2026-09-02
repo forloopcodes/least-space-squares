@@ -147,3 +147,43 @@ def test_cli_runs(tmp_path):
     d = json.loads(out.stdout)
     assert d["n"] == 10 and abs(d["s"] - (3 + SQRT2 / 2)) < 1e-9 and len(d["squares"]) == 10
     assert (tmp_path / "p.svg").read_text().startswith("<svg")
+def test_perturb_kinds_keep_shape():
+    from squarepack.optimize import PERTURB_MIXES, perturb, seed_random
+    rng = np.random.default_rng(3)
+    cfg = seed_random(12, 4.0, rng)
+    for kind in PERTURB_MIXES["extended"]:
+        c = perturb(cfg, rng, kind=kind)
+        assert c.n == 12 and np.all(c.x >= 0.3) and np.all(c.x <= 3.7) and np.all(c.y >= 0.3) and np.all(c.y <= 3.7)
+    c = perturb(cfg, rng, mix="extended")
+    assert c.n == 12
+
+
+def test_snap_angles_snaps_and_clusters():
+    from squarepack.optimize import snap_angles
+    t = np.array([1e-4, -2e-4, math.pi / 4 - 1e-4, 0.4, 0.41, 0.405, -0.3])
+    out, changed = snap_angles(t, tol=1e-3, cluster_tol=0.02)
+    assert changed
+    assert out[0] == 0.0 and out[1] == 0.0 and abs(abs(out[2]) - math.pi / 4) < 1e-15
+    assert out[3] == out[4] == out[5] and abs(out[3] - 0.405) < 1e-12
+    assert out[6] == -0.3
+
+
+def test_anneal_energy_consistent_with_numpy():
+    from squarepack import fastcore
+    from squarepack.optimize import anneal, energy_only, seed_random
+    if fastcore.load() is None:
+        pytest.skip("C core not available")
+    rng = np.random.default_rng(4)
+    cfg = seed_random(9, 3.1, rng)
+    feas, final, E = anneal(cfg, rng, sweeps=200, T0=1e-2, T1=1e-6)
+    assert final.n == 9 and abs(E - energy_only(final.x, final.y, final.t, final.s)) < 1e-9 * (1 + E)
+    feas, final, E = anneal(cfg, rng, sweeps=2000, T0=1e-2, T1=1e-7, shrink=0.01, etol=1e-10)
+    if feas is not None:
+        assert feas.s <= cfg.s and feas.max_violation() < 2e-5
+
+
+@pytest.mark.parametrize("kw", [dict(strategy="anneal"), dict(strategy="anneal-hop"),
+                                dict(perturb_mix="extended", snap=True, seed_mix=("block", "random"))])
+def test_search_variants_return_valid_packings(kw):
+    r = search(7, time_budget=1.0, seed=0, **kw)
+    assert verify(r.packing.s, r.packing.squares).ok and r.packing.s <= 3 + 1e-12

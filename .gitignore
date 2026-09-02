@@ -1,9 +1,10 @@
-__pycache__/
-*.pyc
-.pytest_cache/
 *.egg-info/
-build/
-dist/
+*.pyc
 *.tmp
 .claude/
+.pytest_cache/
+__pycache__/
+build/
+dist/
 results/svg/
+squarepack/_build/
