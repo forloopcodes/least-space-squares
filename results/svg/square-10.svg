@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 3.70710678119 3.70710678119">
+<title>n=10 s=3.70710678</title>
+<rect x="0" y="0" width="3.70710678119" height="3.70710678119" fill="#fff" stroke="#000" stroke-width="0.024714"/>
+<g transform="translate(0 3.70710678119) scale(1 -1)">
+<rect x="-0.5" y="-0.5" width="1" height="1" fill="#b3cde3" stroke="#000" stroke-width="0.0148284" transform="translate(0.5 2.20710678119) rotate(0)"/>
+<rect x="-0.5" y="-0.5" width="1" height="1" fill="#b3cde3" stroke="#000" stroke-width="0.0148284" transform="translate(2.20710678119 0.5) rotate(0)"/>
+<rect x="-0.5" y="-0.5" width="1" height="1" fill="#b3cde3" stroke="#000" stroke-width="0.0148284" transform="translate(0.5 0.5) rotate(0)"/>
+<rect x="-0.5" y="-0.5" width="1" height="1" fill="#b3cde3" stroke="#000" stroke-width="0.0148284" transform="translate(2.20710678119 2.20710678119) rotate(0)"/>
+<rect x="-0.5" y="-0.5" width="1" height="1" fill="#fbb4ae" stroke="#000" stroke-width="0.0148284" transform="translate(1.35355339059 1.35355339059) rotate(45)"/>
+<rect x="-0.5" y="-0.5" width="1" height="1" fill="#b3cde3" stroke="#000" stroke-width="0.0148284" transform="translate(0.5 3.20710678119) rotate(0)"/>
+<rect x="-0.5" y="-0.5" width="1" height="1" fill="#b3cde3" stroke="#000" stroke-width="0.0148284" transform="translate(1.5 3.20710678119) rotate(0)"/>
+<rect x="-0.5" y="-0.5" width="1" height="1" fill="#b3cde3" stroke="#000" stroke-width="0.0148284" transform="translate(2.5 3.20710678119) rotate(0)"/>
+<rect x="-0.5" y="-0.5" width="1" height="1" fill="#b3cde3" stroke="#000" stroke-width="0.0148284" transform="translate(3.20710678119 0.5) rotate(0)"/>
+<rect x="-0.5" y="-0.5" width="1" height="1" fill="#b3cde3" stroke="#000" stroke-width="0.0148284" transform="translate(3.20710678119 1.5) rotate(0)"/>
+</g></svg>
