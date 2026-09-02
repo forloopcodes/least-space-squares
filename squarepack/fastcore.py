@@ -54,6 +54,10 @@ def load() -> Optional[ctypes.CDLL]:
             lib.lbfgs_c.restype = ctypes.c_int
             lib.lbfgs_c.argtypes = [ctypes.c_int, ctypes.c_double, dp, ctypes.c_int, ctypes.c_double,
                                     ctypes.c_double, ctypes.c_double, dp]
+            lib.anneal_c.restype = ctypes.c_int
+            lib.anneal_c.argtypes = [ctypes.c_int, dp, dp, ctypes.c_int, ctypes.c_double, ctypes.c_double,
+                                     ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double,
+                                     ctypes.c_uint64, dp, dp, dp, dp]
             _lib = lib
             return lib
         except Exception:
@@ -88,3 +92,23 @@ def lbfgs(z: np.ndarray, n: int, s: float, maxiter: int, gtol: float, ftol: floa
     E = ctypes.c_double(0.0)
     it = lib.lbfgs_c(n, float(s), _dptr(z), int(maxiter), float(gtol), float(ftol), float(cutoff), ctypes.byref(E))
     return z, float(E.value), int(it)
+
+
+def anneal(z: np.ndarray, n: int, s: float, sweeps: int, T0: float, T1: float, step_xy: float, step_t: float,
+           shrink: float, etol: float, seed: int):
+    """Simulated annealing of ``E`` (see ``anneal_c``).
+
+    Returns ``(hits, z_final, s_final, E_final, z_best, s_best, E_best)``; ``s_best < 0`` when no
+    state with ``E < etol`` was met.
+    """
+    lib = load()
+    z = np.array(z, dtype=np.float64, copy=True)
+    zb = np.zeros_like(z)
+    s_io = ctypes.c_double(float(s))
+    sb = ctypes.c_double(-1.0)
+    Eb = ctypes.c_double(0.0)
+    Ef = ctypes.c_double(0.0)
+    hits = lib.anneal_c(n, _dptr(z), ctypes.byref(s_io), int(sweeps), float(T0), float(T1), float(step_xy),
+                        float(step_t), float(shrink), float(etol), int(seed) & 0xFFFFFFFFFFFFFFFF,
+                        _dptr(zb), ctypes.byref(sb), ctypes.byref(Eb), ctypes.byref(Ef))
+    return int(hits), z, float(s_io.value), float(Ef.value), zb, float(sb.value), float(Eb.value)

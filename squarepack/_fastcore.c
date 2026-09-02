@@ -219,3 +219,173 @@ int lbfgs_c(int n, double s, double *z, int maxiter, double gtol, double ftol, d
     free(pl.I); free(pl.J); free(zref); free(g); free(gn); free(d); free(zn); free(S); free(Y);
     return it;
 }
+
+/* ------------------------------------------------------------------------- */
+/* Simulated annealing on E(z; s) with single-square Metropolis moves.        */
+/* ------------------------------------------------------------------------- */
+#define QUARTER_PI 0.78539816339744831
+#define HALF_PI 1.5707963267948966
+
+static inline unsigned long long rng_next(unsigned long long *st) {      /* xorshift64* */
+    unsigned long long x = *st;
+    x ^= x >> 12; x ^= x << 25; x ^= x >> 27;
+    *st = x;
+    return x * 0x2545F4914F6CDD1DULL;
+}
+static inline double rng_u(unsigned long long *st) { return (double)(rng_next(st) >> 11) * (1.0 / 9007199254740992.0); }
+static inline double rng_sym(unsigned long long *st) { return 2.0 * rng_u(st) - 1.0; }
+static inline double canon(double t) { return t - HALF_PI * floor((t + QUARTER_PI) / HALF_PI); }
+
+/* squared penetration of two unit squares (0 when separated) from the centre offset and cos/sin */
+static inline double pen2(double dx, double dy, double ci, double si, double cj, double sj) {
+    double A0 = ci * dx + si * dy, A1 = -si * dx + ci * dy, A2 = cj * dx + sj * dy, A3 = -sj * dx + cj * dy;
+    double M = fabs(A0), a;
+    a = fabs(A1); if (a > M) M = a;
+    a = fabs(A2); if (a > M) M = a;
+    a = fabs(A3); if (a > M) M = a;
+    double cphi = ci * cj + si * sj, sphi = sj * ci - cj * si;
+    double p = 0.5 + 0.5 * (fabs(cphi) + fabs(sphi)) - M;
+    return p > 0 ? p * p : 0.0;
+}
+
+/* energy of square i placed at (xi, yi) with cos/sin (ci, si): pairs with every other square
+ * (except `skip`) plus its own container terms */
+static double sq_energy(int n, double s, const double *x, const double *y, const double *c, const double *sn,
+                        int i, int skip, double xi, double yi, double ci, double si) {
+    double e = 0.0;
+    for (int j = 0; j < n; j++) {
+        if (j == i || j == skip) continue;
+        double dx = xi - x[j], dy = yi - y[j];
+        if (fabs(dx) >= SQRT2 || fabs(dy) >= SQRT2) continue;
+        e += pen2(dx, dy, ci, si, c[j], sn[j]);
+    }
+    double w = 0.5 * (fabs(ci) + fabs(si)), v;
+    v = w - xi; if (v > 0) e += v * v;
+    v = xi + w - s; if (v > 0) e += v * v;
+    v = w - yi; if (v > 0) e += v * v;
+    v = yi + w - s; if (v > 0) e += v * v;
+    return e;
+}
+
+static double total_energy(int n, double s, const double *x, const double *y, const double *c, const double *sn) {
+    double E = 0.0;
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            double dx = x[i] - x[j], dy = y[i] - y[j];
+            if (fabs(dx) >= SQRT2 || fabs(dy) >= SQRT2) continue;
+            E += pen2(dx, dy, c[i], sn[i], c[j], sn[j]);
+        }
+        double w = 0.5 * (fabs(c[i]) + fabs(sn[i])), v;
+        v = w - x[i]; if (v > 0) E += v * v;
+        v = x[i] + w - s; if (v > 0) E += v * v;
+        v = w - y[i]; if (v > 0) E += v * v;
+        v = y[i] + w - s; if (v > 0) E += v * v;
+    }
+    return E;
+}
+
+/* Simulated annealing of E(z; s).  Temperature decays geometrically from T0 to T1 over
+ * `nsweeps` sweeps of n single-square moves (displace / rotate / both / snap the angle to
+ * 0 or pi/4 / swap two squares / teleport).  Displacement and rotation steps adapt to keep
+ * the acceptance rate in a sensible window.  Whenever the tracked energy drops below `etol`
+ * (a valid packing up to ~sqrt(etol)), the state is copied to `zbest` with *s_best = s and,
+ * if `shrink` > 0, the container is shrunk by that relative amount (positions scaled).
+ * On return z holds the final state at *s_io.  Returns the number of feasible hits. */
+int anneal_c(int n, double *z, double *s_io, int nsweeps, double T0, double T1, double step_xy, double step_t,
+             double shrink, double etol, unsigned long long seed, double *zbest, double *s_best,
+             double *E_best, double *E_final) {
+    double *x = z, *y = z + n, *t = z + 2 * n;
+    double *c = (double *)malloc(sizeof(double) * n), *sn = (double *)malloc(sizeof(double) * n);
+    unsigned long long st = seed * 0x9E3779B97F4A7C15ULL + 0x1234567ULL;
+    if (st == 0) st = 1;
+    for (int k = 0; k < 8; k++) rng_next(&st);
+    double s = *s_io;
+    for (int i = 0; i < n; i++) { t[i] = canon(t[i]); c[i] = cos(t[i]); sn[i] = sin(t[i]); }
+    double E = total_energy(n, s, x, y, c, sn);
+    int hits = 0;
+    *s_best = -1.0; *E_best = 1e300;
+    if (E < etol) {
+        memcpy(zbest, z, sizeof(double) * 3 * n); *s_best = s; *E_best = E; hits++;
+        if (shrink > 0) {
+            double f = 1.0 - shrink;
+            for (int i = 0; i < n; i++) { x[i] *= f; y[i] *= f; }
+            s *= f; E = total_energy(n, s, x, y, c, sn);
+        }
+    }
+    double sxy = step_xy, stt = step_t;
+    double lratio = (nsweeps > 1) ? log(T1 / T0) / (double)(nsweeps - 1) : 0.0;
+    for (int sweep = 0; sweep < nsweeps; sweep++) {
+        double T = T0 * exp(lratio * sweep);
+        int acc_xy = 0, try_xy = 0, acc_t = 0, try_t = 0;
+        for (int m = 0; m < n; m++) {
+            int i = (int)(rng_u(&st) * n); if (i >= n) i = n - 1;
+            double r = rng_u(&st);
+            double xi = x[i], yi = y[i], ti = t[i], ci = c[i], si = sn[i];
+            int j = -1; double xj = 0, yj = 0;
+            int kind;                                    /* 0 move, 1 rotate, 2 both, 3 snap, 4 swap, 5 teleport */
+            if (r < 0.45) kind = 0; else if (r < 0.70) kind = 1; else if (r < 0.82) kind = 2;
+            else if (r < 0.88) kind = 3; else if (r < 0.96) kind = 4; else kind = 5;
+            double dE, e_old, e_new;
+            if (kind == 4) {
+                if (n < 2) continue;
+                j = (int)(rng_u(&st) * (n - 1)); if (j >= i) j++; if (j >= n) j = n - 1;
+                xj = x[j]; yj = y[j];
+                e_old = sq_energy(n, s, x, y, c, sn, i, j, xi, yi, ci, si) + sq_energy(n, s, x, y, c, sn, j, i, xj, yj, c[j], sn[j]);
+                e_new = sq_energy(n, s, x, y, c, sn, i, j, xj, yj, ci, si) + sq_energy(n, s, x, y, c, sn, j, i, xi, yi, c[j], sn[j]);
+            } else {
+                e_old = sq_energy(n, s, x, y, c, sn, i, -1, xi, yi, ci, si);
+                double scale = (rng_u(&st) < 0.5) ? 1.0 : 0.15;
+                if (kind == 0 || kind == 2) {
+                    xi += sxy * scale * rng_sym(&st); yi += sxy * scale * rng_sym(&st);
+                    try_xy++;
+                }
+                if (kind == 1 || kind == 2) {
+                    ti = canon(ti + stt * scale * rng_sym(&st));
+                    try_t++;
+                }
+                if (kind == 3) ti = (rng_u(&st) < 0.5) ? 0.0 : QUARTER_PI;
+                if (kind == 5) {
+                    xi = 0.5 + rng_u(&st) * (s - 1.0); yi = 0.5 + rng_u(&st) * (s - 1.0);
+                    double q = rng_u(&st);
+                    ti = q < 0.4 ? 0.0 : (q < 0.7 ? QUARTER_PI : (rng_u(&st) - 0.5) * HALF_PI);
+                }
+                if (xi < 0.3) xi = 0.3; if (xi > s - 0.3) xi = s - 0.3;
+                if (yi < 0.3) yi = 0.3; if (yi > s - 0.3) yi = s - 0.3;
+                if (kind != 0) { ci = cos(ti); si = sin(ti); }
+                e_new = sq_energy(n, s, x, y, c, sn, i, -1, xi, yi, ci, si);
+            }
+            dE = e_new - e_old;
+            int accept = (dE <= 0.0) || (T > 0 && rng_u(&st) < exp(-dE / T));
+            if (!accept) continue;
+            if (kind == 4) {
+                x[i] = xj; y[i] = yj; x[j] = xi; y[j] = yi;
+            } else {
+                x[i] = xi; y[i] = yi; t[i] = ti; c[i] = ci; sn[i] = si;
+                if (kind == 0 || kind == 2) acc_xy++;
+                if (kind == 1 || kind == 2) acc_t++;
+            }
+            double Eprev = E;
+            E += dE;
+            if (E < etol && Eprev >= etol) {
+                E = total_energy(n, s, x, y, c, sn);
+                if (E < etol) {
+                    memcpy(zbest, z, sizeof(double) * 3 * n); *s_best = s; *E_best = E; hits++;
+                    if (shrink > 0) {
+                        double f = 1.0 - shrink;
+                        for (int k = 0; k < n; k++) { x[k] *= f; y[k] *= f; }
+                        s *= f; E = total_energy(n, s, x, y, c, sn);
+                    }
+                }
+            }
+        }
+        /* adapt the step sizes towards ~35% acceptance */
+        if (try_xy >= 8) { double a = (double)acc_xy / try_xy; if (a < 0.25) sxy *= 0.85; else if (a > 0.45) sxy *= 1.15; }
+        if (try_t >= 8) { double a = (double)acc_t / try_t; if (a < 0.25) stt *= 0.85; else if (a > 0.45) stt *= 1.15; }
+        if (sxy < 1e-5) sxy = 1e-5; if (sxy > 0.5) sxy = 0.5;
+        if (stt < 1e-5) stt = 1e-5; if (stt > 0.8) stt = 0.8;
+        E = total_energy(n, s, x, y, c, sn);         /* kill accumulated round-off once per sweep */
+    }
+    *E_final = E; *s_io = s;
+    free(c); free(sn);
+    return hits;
+}
