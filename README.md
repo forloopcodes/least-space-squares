@@ -220,6 +220,7 @@ Values of n (≤ 100) still above the literature record after this budget, with 
 | 88 | 9.896827 | 9.888153 | +0.008674 | numeric:tilted_block |
 
 Over n = 1..324 the analytic part alone (closed forms + tilted-block search, no numerical search)
-matches 227 of the 324 record values (`results/block_sweep.md`); the remaining records are
-irregular packings found by multi-day simulated-annealing runs (Schadt, Ellsworth 2024–2026) or
-special families (√7 family of Hämäläinen/Friedman, DeVincentis' n = 54, …).
+matches 244 of the 324 record values — 235 from the closed-form families, 9 more from the block
+engine (`results/block_sweep.md`; median 1.6 s per n, worst 33 s, on one core). The 80
+remaining records are irregular packings found by multi-day simulated-annealing runs (Trump's 11,
+Bidwell's 17, Schadt's and Ellsworth's 2024–2026 records) whose structure no closed form captures.
