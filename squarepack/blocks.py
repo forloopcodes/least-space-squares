@@ -86,7 +86,7 @@ def spec_polygons(s: np.ndarray, spec: np.ndarray) -> np.ndarray:
     cy = 0.5 * s + oy
     out = np.empty(spec.shape[:2] + (4, 2))
     for m, (sx, sy) in enumerate(((1, 1), (-1, 1), (-1, -1), (1, -1))):
-        a = 0.5 * (sx * w + u * sy * h)   # along e1 (rows are shifted by u per unit of height)
+        a = 0.5 * (sx * (w + np.abs(u)) + u * sy * h)   # along e1; the staircase of rows shifted by u needs w + |u|
         b = 0.5 * sy * h                  # along e2
         out[..., m, 0] = cx + a * c - b * sn
         out[..., m, 1] = cy + a * sn + b * c
@@ -798,6 +798,8 @@ class _Candidate:
         if pk is None or pk.n < n:
             return None
         pk = pk.take(n)
+        if not np.any(np.abs(np.sin(2.0 * pk.squares[:, 2])) > 1e-9):
+            return None   # the surplus removal ate the whole block: this is just a grid, not a block packing
         # the bisection stops within ~EPS of the exact threshold; scaling by the
         # minimal repair factor makes the packing exactly valid (strict check)
         s_fix, sq_fix = repair(pk.s, pk.squares)
@@ -1119,6 +1121,8 @@ def tilted_block_search(n: int, s_max: Optional[float] = None,
         pk = c.build(n)
         if pk is None:
             log(f"candidate failed verification: {c.family.label(c.params, c.transpose)} s={c.s:.10f}")
+            continue
+        if pk.s >= s_max - 1e-12:   # the exact (repaired) side must beat s_max, not just the bisection side
             continue
         if best is None or pk.s < best.s - 1e-12:
             best = pk

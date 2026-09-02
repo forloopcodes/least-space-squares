@@ -62,9 +62,12 @@ def bbox_half_width(theta):
 
 
 def canonical_angle(theta):
-    """Reduce an angle to ``[-pi/4, pi/4)`` using the 4-fold symmetry of a square."""
+    """Reduce an angle to ``(-pi/4, pi/4]`` using the 4-fold symmetry of a square
+    (so that a 45-degree square is reported as ``+pi/4``)."""
     theta = np.asarray(theta, dtype=float)
-    return (theta + QUARTER_PI) % HALF_PI - QUARTER_PI
+    out = theta - HALF_PI * np.floor((theta + QUARTER_PI) / HALF_PI)
+    out = np.where(out <= -QUARTER_PI + 1e-12, out + HALF_PI, out)
+    return out
 
 
 def square_vertices(x, y, theta) -> Array:
@@ -104,29 +107,33 @@ def candidate_pairs(x: Array, y: Array, cutoff: float = SQRT2 + 1e-9,
         I, J = all_pairs(n)
         m = (np.abs(x[I] - x[J]) < cutoff) & (np.abs(y[I] - y[J]) < cutoff)
         return I[m], J[m]
+    if not (np.all(np.isfinite(x)) and np.all(np.isfinite(y))):
+        I, J = all_pairs(n)
+        m = (np.abs(x[I] - x[J]) < cutoff) & (np.abs(y[I] - y[J]) < cutoff)
+        return I[m], J[m]
     cx = np.floor(x / cutoff).astype(np.int64)
     cy = np.floor(y / cutoff).astype(np.int64)
     cx -= cx.min()
     cy -= cy.min()
-    ncol = int(cy.max()) + 2
-    key = cx * ncol + cy
-    order = np.argsort(key, kind="stable")
-    keys_sorted = key[order]
-    uniq, start = np.unique(keys_sorted, return_index=True)
+    # group indices by cell with a lexicographic sort on the (cx, cy) pair; the lookup is keyed by
+    # the Python-int tuple, so no scalar key arithmetic can overflow for huge coordinate spreads
+    order = np.lexsort((cy, cx))
+    cs = cx[order]
+    ds = cy[order]
+    change = np.nonzero((cs[1:] != cs[:-1]) | (ds[1:] != ds[:-1]))[0] + 1
+    start = np.concatenate([[0], change])
     end = np.append(start[1:], n)
-    lookup = {int(k): (int(a), int(b)) for k, a, b in zip(uniq, start, end)}
+    lookup = {(int(cs[a]), int(ds[a])): (int(a), int(b)) for a, b in zip(start, end)}
     Is = []
     Js = []
-    for k, (a, b) in lookup.items():
+    for (cxk, cyk), (a, b) in lookup.items():
         idx = order[a:b]
         if b - a > 1:
             ii, jj = np.triu_indices(b - a, 1)
             Is.append(idx[ii])
             Js.append(idx[jj])
-        cxk, cyk = divmod(k, ncol)
         for dxc, dyc in ((1, 0), (0, 1), (1, 1), (1, -1)):
-            k2 = (cxk + dxc) * ncol + (cyk + dyc)
-            nb = lookup.get(k2)
+            nb = lookup.get((cxk + dxc, cyk + dyc))
             if nb is None:
                 continue
             idx2 = order[nb[0]:nb[1]]

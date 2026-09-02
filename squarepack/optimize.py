@@ -475,7 +475,7 @@ def _block_shape(pk: Packing):
         return None
 
 
-def block_seed_pool(n: int, extra: int = 2, per_n: int = 2) -> List[Packing]:
+def block_seed_pool(n: int, extra: int = 2, per_n: int = 2, deadline: Optional[float] = None) -> List[Packing]:
     """Structured seeds: the best tilted-block members (several block shapes) for ``n`` and for
     the next few larger ``n`` (their surplus squares are dropped at random by :func:`seed_block`).
     The pool is cached per ``(n, extra, per_n)``."""
@@ -484,10 +484,14 @@ def block_seed_pool(n: int, extra: int = 2, per_n: int = 2) -> List[Packing]:
     if key in _BLOCK_POOLS:
         return _BLOCK_POOLS[key]
     pool: List[Packing] = []
+    complete = True
     for m in range(n, n + extra + 1):
         s_max = grid(m).s + 0.3
         seen = set()
         for _ in range(per_n):
+            if deadline is not None and time.time() > deadline:
+                complete = False
+                break
             shapes = None
             if seen:
                 pmax = int(s_max * SQRT2) + 1
@@ -508,7 +512,8 @@ def block_seed_pool(n: int, extra: int = 2, per_n: int = 2) -> List[Packing]:
             if pk.method != "grid":
                 pool.append(pk)
     pool.sort(key=lambda q: q.s)
-    _BLOCK_POOLS[key] = pool
+    if complete:
+        _BLOCK_POOLS[key] = pool
     return pool
 
 
@@ -800,7 +805,7 @@ def snap_polish(cfg: Config, rng, deadline: float, ptol: float = 1e-8, tol: floa
 # penalty continuation (s as a variable)
 # --------------------------------------------------------------------------- #
 def penalty_descent(cfg: Config, mus: Sequence[float] = (1.0, 10.0, 1e2, 1e3, 1e4, 1e5, 1e6),
-                    maxiter: int = 300) -> Config:
+                    maxiter: int = 300, deadline: Optional[float] = None) -> Config:
     """Minimise ``s + mu * E(z; s)`` for increasing ``mu`` (quadratic penalty method)."""
     n = cfg.n
     z = np.concatenate([cfg.x, cfg.y, cfg.t, [cfg.s]])
@@ -813,6 +818,8 @@ def penalty_descent(cfg: Config, mus: Sequence[float] = (1.0, 10.0, 1e2, 1e3, 1e
         return float(zz[-1]) + mu * E, g
 
     for mu in mus:
+        if deadline is not None and time.time() > deadline:
+            break
         I, J = candidate_pairs(z[:n], z[n:2 * n], cutoff=PAIR_CUTOFF)
         res = minimize(f, z, args=(I, J, mu), jac=True, method="L-BFGS-B", bounds=bounds,
                        options={"maxiter": maxiter, "gtol": 1e-10, "ftol": 1e-16, "maxcor": 30})
@@ -946,12 +953,14 @@ def search(n: int, time_budget: float = 30.0, seed: Optional[int] = None,
             elif kind == "block":
                 if block_pool is None:
                     # building the pool costs a few seconds: skip it for tiny budgets
-                    block_pool = block_seed_pool(n) if deadline - time.time() > 12.0 else []
+                    block_pool = block_seed_pool(n, deadline=deadline - 4.0) if deadline - time.time() > 12.0 else []
                 cfg = seed_block(n, rng, block_pool) if block_pool else seed_random(n, s0, rng)
             else:
                 cfg = seed_random(n, s0, rng)
+            if time.time() > deadline - 1.0:
+                break   # a seed pass (anneal/penalty) cannot be interrupted: do not start one at the deadline
             if strategy == "penalty":
-                cfg = penalty_descent(cfg)
+                cfg = penalty_descent(cfg, deadline=deadline)
             if strategy == "anneal" and fastcore.load() is not None:
                 feas = anneal_feasible(cfg, rng, ptol, stats=stats, anneal_opts=anneal_opts, mix=perturb_mix)
             else:

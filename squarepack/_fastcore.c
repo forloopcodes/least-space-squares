@@ -30,13 +30,17 @@ static void build_pairs(int n, const double *x, const double *y, double cutoff, 
         if (x[i] < xmin) xmin = x[i]; if (x[i] > xmax) xmax = x[i];
         if (y[i] < ymin) ymin = y[i]; if (y[i] > ymax) ymax = y[i];
     }
-    long ncx = (long)((xmax - xmin) / cutoff) + 1, ncy = (long)((ymax - ymin) / cutoff) + 1;
-    if (ncx * ncy > 8L * n + 64 || n < 64) {           /* degenerate spread or tiny n: brute force */
+    int bad = 0;
+    for (int i = 0; i < n; i++) if (!isfinite(x[i]) || !isfinite(y[i])) { bad = 1; break; }
+    double gx = (xmax - xmin) / cutoff, gy = (ymax - ymin) / cutoff;   /* evaluated in double: no overflow */
+    if (bad || n < 64 || !(gx < 1e6) || !(gy < 1e6) || (floor(gx) + 1.0) * (floor(gy) + 1.0) > 8.0 * n + 64) {
+        /* degenerate spread, non-finite input or tiny n: brute force */
         for (int i = 0; i < n; i++)
             for (int j = i + 1; j < n; j++)
                 if (fabs(x[i] - x[j]) < cutoff && fabs(y[i] - y[j]) < cutoff) pl_push(pl, i, j);
         return;
     }
+    long ncx = (long)gx + 1, ncy = (long)gy + 1;
     int *head = (int *)malloc(sizeof(int) * ncx * ncy);
     int *next = (int *)malloc(sizeof(int) * n);
     for (long c = 0; c < ncx * ncy; c++) head[c] = -1;
@@ -114,6 +118,7 @@ double energy_grad_c(int n, double s, const double *z, int m, const int *I, cons
 
 /* largest penetration / protrusion of a configuration (exact pair test) */
 double max_violation_c(int n, double s, const double *z) {
+    for (int i = 0; i < 3 * n; i++) if (!isfinite(z[i])) return INFINITY;   /* NaN/inf is never feasible */
     PairList pl = {0};
     build_pairs(n, z, z + n, SQRT2 + 1e-9, &pl);
     const double *x = z, *y = z + n, *t = z + 2 * n;

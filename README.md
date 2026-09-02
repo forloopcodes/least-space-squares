@@ -20,7 +20,7 @@ $ python -m squarepack 41 --budget 120 --json --svg 41.svg --save
 ```
 
 Coordinates live in the container `[0, s] × [0, s]` (origin at the bottom-left corner),
-angles are counter-clockwise, reduced to `[-π/4, π/4)` by the 4-fold symmetry of a square.
+angles are counter-clockwise, reduced to `(-π/4, π/4]` by the 4-fold symmetry of a square.
 Every packing returned by the library has passed `squarepack.verify` (no overlaps, nothing
 outside the container, tolerance 1e-9) — the verifier is an exact separating-axis test, not a
 sampling test.
@@ -135,8 +135,11 @@ moves, which is what the numerical search is for.
 
 ## 3. Complexity
 
-* Closed-form constructions: Θ(n) — optimal, the output has n triples. Selecting the best
-  family member for `n` is O(√n) arithmetic.
+* Closed-form constructions: the Göbel families and their L extensions are Θ(n) — optimal, the
+  output has n triples — and selecting the family member is O(√n) arithmetic. The √7 and
+  DeVincentis families use a small geometric engine per family member (a phase search, ~0.3 s per
+  member, cached per process), so `best_analytic(n)` is ~10 ms for n ≤ 400 but grows to ~15 s at
+  n ≈ 900 and ~25 s at n ≈ 1600.
 * Tilted-block search: O(#shapes · #offsets · ⌊s⌋ · 42) vectorised; ≈ 0.1 s (n ≈ 10) to ≈ 10 s
   (n ≈ 300) on one core.
 * Verification: O(n) expected (cell grid), O(n²) worst case for pathological inputs.
@@ -145,8 +148,10 @@ moves, which is what the numerical search is for.
   NP-hard, no polynomial-time exact algorithm is expected; the budgeted search is the general
   fallback and the cache (`data/best_packings.json`) makes repeated queries O(n).
 
-`pack(n)` therefore costs O(n) for cached / closed-form `n`, a few seconds when the block search
-runs, and exactly the requested budget when a numerical search is requested.
+`pack(n)` therefore costs milliseconds for cached / closed-form `n` up to a few hundred (the block
+search is skipped whenever a closed form or the cache already reaches the best known side), a
+few seconds when the block search runs, and the requested budget (plus at most one
+un-interruptible seed pass) when a numerical search is requested.
 
 ## 4. Results
 

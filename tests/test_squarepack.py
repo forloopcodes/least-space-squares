@@ -11,6 +11,7 @@ from squarepack.constructions import (gobel_square_member, gobel_square_valid, g
                                       gobel_strip_capacity, add_L, grid)
 from squarepack.geometry import pair_penetration, candidate_pairs, SQRT2
 from squarepack.optimize import energy_grad, search, Config, local_opt
+from squarepack import fastcore
 
 
 def test_verify_accepts_touching_and_rejects_overlap():
@@ -196,3 +197,76 @@ def test_block_seed_pool_and_block_seeds_run():
     assert _block_shape(pool[0]) is not None or pool[0].method != "tilted_block"
     r = search(26, time_budget=6.0, seed=0, seed_mix=("block",))
     assert verify(r.packing.s, r.packing.squares).ok and r.packing.s <= best_analytic(26).s + 1e-9
+
+
+def test_candidate_pairs_huge_coordinates_no_overflow():
+    # two overlapping squares far from the origin in the cell-grid path (n > 512): the pair must be found
+    n = 600
+    x = np.arange(n, dtype=float) * 3.0 + 2.0 ** 32
+    y = np.zeros(n) + 2.0 ** 32
+    x[1] = x[0] + 0.9
+    s = float(x.max() + 5)
+    rep = verify(s, np.column_stack([x, y, np.zeros(n)]), 1e-9)
+    assert not rep.ok and rep.worst_pair == (0, 1)
+    if fastcore.load() is not None:
+        assert fastcore.max_violation(np.concatenate([x, y, np.zeros(n)]), n, s) > 0.09
+        z = np.concatenate([x, y, np.zeros(n)]); z[5] = float("inf")
+        assert fastcore.max_violation(z, n, s) == float("inf")
+
+
+def test_verify_rejects_non_finite():
+    assert not verify(3, [[0.5, 0.5, 0], [float("nan"), 1.5, 0]]).ok
+    assert not verify(3, [[0.5, 0.5, float("nan")]]).ok
+
+
+def test_sheared_block_pieces_are_valid():
+    from squarepack.blocks import build_spec_packing
+    rng = np.random.default_rng(3)
+    checked = 0
+    for _ in range(40):
+        w, h = int(rng.integers(1, 5)), int(rng.integers(2, 5))
+        u = float(rng.choice([-0.5, -0.25, 0.25, 0.5, 1.0]))
+        s = float(rng.uniform(6, 9))
+        spec = np.array([[w, h, 0.0, 0.0, math.pi / 4, u]])
+        pk = build_spec_packing(s, spec, False, "x", "", {})
+        if pk is not None:
+            checked += 1
+            assert verify(pk.s, pk.squares, 1e-9).ok, (w, h, u, s)
+    assert checked > 10
+
+
+def test_tilted_block_search_respects_s_max():
+    for n in (6, 12, 20):
+        assert tilted_block_search(n) is None
+
+
+def test_solve_angles_reduced_and_blocks_skipped_when_settled():
+    for n in (27, 39, 86):
+        sol = solve(n, use_cache=False)
+        assert np.all(sol.squares[:, 2] > -math.pi / 4 - 1e-12) and np.all(sol.squares[:, 2] <= math.pi / 4 + 1e-12)
+        assert verify(sol.s, sol.squares).ok
+
+
+def test_corrupt_cache_is_ignored(tmp_path):
+    import squarepack.solver as S
+    bad = tmp_path / "cache.json"
+    bad.write_text('{"5": {"s": 1.0, "squares": [[0,0,0]]}, "x": 3, "7": {"s": "no"}, "9": {"s": 3.0, "squares": [[0.5,0.5,0]]}}')
+    assert S._load_cache(bad) == {}
+    bad.write_text("not json at all")
+    assert S._load_cache(tmp_path / "other.json") == {}
+    p = grid(4)
+    assert S.update_cache(p, path=tmp_path / "new.json")
+    assert S.cached(4, path=tmp_path / "new.json").n == 4
+
+
+def test_benchmark_json_is_strict():
+    import json as _json
+    txt = (ROOT / "results" / "benchmark.json").read_text()
+    assert "Infinity" not in txt and "NaN" not in txt
+    _json.loads(txt)
+
+
+def test_grouped_proved_entries():
+    from squarepack.known import is_proved, record_entry
+    assert is_proved(194) and is_proved(195) and record_entry(194)[3] == record_entry(195)[3]
+    assert not is_proved(29)

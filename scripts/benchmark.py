@@ -76,6 +76,17 @@ def run_one(n: int, budget: float, seed: int, use_cache: bool) -> dict:
     return row
 
 
+def _finite(obj):
+    """Replace non-finite floats (e.g. -inf for 'no pair') by None so the file is strict JSON."""
+    if isinstance(obj, float):
+        return obj if math.isfinite(obj) else None
+    if isinstance(obj, dict):
+        return {k: _finite(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_finite(v) for v in obj]
+    return obj
+
+
 def fmt(v):
     return f"{v:.6f}" if isinstance(v, float) else str(v)
 
@@ -156,7 +167,7 @@ def main():
                 if a.save:
                     update_cache(p)
     slim = [{k: v for k, v in r.items() if k != "packing"} for r in ordered]
-    (out / "benchmark.json").write_text(json.dumps(slim, indent=1))
+    (out / "benchmark.json").write_text(json.dumps(_finite(slim), indent=1))
     write_markdown(ordered, out / "benchmark.md", a.budget)
     print("wrote", out / "benchmark.md")
 

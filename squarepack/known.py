@@ -210,11 +210,25 @@ def best_known(n: int):
     return float(best)
 
 
+def _grouped_with_next(n: int):
+    """The source page labels the proven pairs (k^2-2, k^2-1) as one entry ("194, 195 ... Proved");
+    the table keeps the larger n, so the smaller one inherits that entry."""
+    m = n + 1
+    k = math.isqrt(m + 1)
+    if m in RECORDS and (k * k - 1 == m) and RECORDS[m][0] == math.ceil(math.sqrt(n)) and "Proved" in RECORDS[m][2]:
+        return m
+    return None
+
+
 def record_entry(n: int):
     """The record that the best-known value for ``n`` derives from: (m, s, exact, note)."""
     best = best_known(n)
     if best is None:
         return None
+    g = _grouped_with_next(n)
+    if n not in RECORDS and g is not None:
+        s, ex, note = RECORDS[g]
+        return n, s, ex, note
     for m, (s, ex, note) in sorted(RECORDS.items()):
         if m >= n and abs(s - best) < 1e-12:
             return m, s, ex, note
@@ -228,6 +242,8 @@ def is_proved(n: int) -> bool:
         return False
     m, s, ex, note = ent
     if m == n and ("Proved" in note or "Trivial" in note):
+        return True
+    if _grouped_with_next(n) is not None:
         return True
     k = math.isqrt(n)
     # n = k^2, k^2 - 1, k^2 - 2 are proven (Nagamochi 2005) for all k; small cases are in the table.
