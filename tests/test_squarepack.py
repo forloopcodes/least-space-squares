@@ -1,4 +1,6 @@
 import math
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
 
 import numpy as np
 import pytest
@@ -127,3 +129,21 @@ def test_pack_api_shapes():
     assert any(abs(abs(row[2]) - 45) < 1e-9 for row in arr)
     sol = solve(26, use_cache=False)
     assert abs(sol.s - (3.5 + 1.5 * SQRT2)) < 1e-9 and sol.best_known is not None
+
+
+def test_exact_form_recognition():
+    from squarepack.exact import exact_form
+    assert exact_form(3.5 + math.sqrt(7) / 2) == "(7 + sqrt(7))/2"
+    assert exact_form(5 + SQRT2 / 2) == "(10 + sqrt(2))/2"
+    assert exact_form(3 + 4 * SQRT2 / 3) == "(9 + 4*sqrt(2))/3"
+    assert exact_form(7 + 4 / 7) == "53/7"
+    assert exact_form(3.8770835900228) is None
+
+
+def test_cli_runs(tmp_path):
+    import subprocess, sys, json
+    out = subprocess.run([sys.executable, "-m", "squarepack", "10", "--json", "--degrees", "--svg", str(tmp_path / "p.svg")],
+                         capture_output=True, text=True, check=True, cwd=str(ROOT))
+    d = json.loads(out.stdout)
+    assert d["n"] == 10 and abs(d["s"] - (3 + SQRT2 / 2)) < 1e-9 and len(d["squares"]) == 10
+    assert (tmp_path / "p.svg").read_text().startswith("<svg")

@@ -31,6 +31,7 @@ import numpy as np
 from .blocks import tilted_block_search
 from .constructions import Packing, analytic_candidates, best_analytic
 from .geometry import verify
+from .exact import exact_form
 from .known import best_known, is_proved
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
@@ -144,7 +145,11 @@ def solve(n: int, time_budget: float = 0.0, use_cache: bool = True, use_blocks: 
         raise RuntimeError(f"internal error: produced an invalid packing: {rep}")
     if save and best.method not in ("grid",):
         update_cache(best)
-    return Solution(n, float(best.s), np.asarray(best.squares, float), best.method, best.exact,
+    exact = best.exact
+    form = exact_form(best.s)
+    if form and form not in exact:
+        exact = f"{exact} = {form}" if exact else form
+    return Solution(n, float(best.s), np.asarray(best.squares, float), best.method, exact,
                     lower, best_known(n), proved or abs(best.s - lower) < 1e-12)
 
 
