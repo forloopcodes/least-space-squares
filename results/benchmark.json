@@ -6,17 +6,17 @@
   "lower_bound": 1.0,
   "grid": {
    "s": 1.0,
-   "time": 0.0003025480000360403
+   "time": 0.00019087100008619018
   },
   "closed_form": {
    "s": 1.0,
-   "time": 6.153399999675457e-05,
+   "time": 0.004135917999519734,
    "method": "grid",
    "exact": "1"
   },
   "tilted_block": {
    "s": 1.0,
-   "time": 2.0249999579391442e-06,
+   "time": 3.437000486883335e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -40,17 +40,17 @@
   "lower_bound": 1.4142135623730951,
   "grid": {
    "s": 2.0,
-   "time": 0.00017120199981945916
+   "time": 0.00023682499977439875
   },
   "closed_form": {
    "s": 2.0,
-   "time": 5.526899985852651e-05,
+   "time": 0.004705600999841408,
    "method": "grid",
    "exact": "2"
   },
   "tilted_block": {
    "s": 2.0,
-   "time": 1.6520002645847853e-06,
+   "time": 3.4380000215605833e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -74,17 +74,17 @@
   "lower_bound": 1.7320508075688772,
   "grid": {
    "s": 2.0,
-   "time": 8.318200025314582e-05
+   "time": 5.5653000345046166e-05
   },
   "closed_form": {
    "s": 2.0,
-   "time": 6.693900013488019e-05,
+   "time": 9.808300001168391e-05,
    "method": "grid",
    "exact": "2"
   },
   "tilted_block": {
    "s": 2.0,
-   "time": 1.7340003068966325e-06,
+   "time": 1.7130005289800465e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -108,17 +108,17 @@
   "lower_bound": 2.0,
   "grid": {
    "s": 2.0,
-   "time": 4.36559998888697e-05
+   "time": 5.198400049266638e-05
   },
   "closed_form": {
    "s": 2.0,
-   "time": 4.15649997194123e-05,
+   "time": 6.255900007090531e-05,
    "method": "grid",
    "exact": "2"
   },
   "tilted_block": {
    "s": 2.0,
-   "time": 2.1020000531279948e-06,
+   "time": 1.8569999156170525e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -142,18 +142,18 @@
   "lower_bound": 2.23606797749979,
   "grid": {
    "s": 3.0,
-   "time": 2.421099998173304e-05
+   "time": 7.955300043249736e-05
   },
   "closed_form": {
    "s": 2.7071067811865475,
-   "time": 0.00012387200013108668,
+   "time": 0.00013198899978306144,
    "method": "gobel_strip",
    "exact": "2 + sqrt(2)/2"
   },
   "tilted_block": {
-   "s": 2.7071067811865475,
-   "time": 0.11700522799992541,
-   "exact": "(none better)"
+   "s": 2.7071067812478273,
+   "time": 1.4029772879994198,
+   "exact": "tilted 1x1 block at 45deg, offset (+0,+0)"
   },
   "numeric": {
    "s": 2.7071067811865475,
@@ -176,18 +176,18 @@
   "lower_bound": 2.449489742783178,
   "grid": {
    "s": 3.0,
-   "time": 5.403099976319936e-05
+   "time": 5.1498999710020144e-05
   },
   "closed_form": {
    "s": 3.0,
-   "time": 0.0003717740000865888,
+   "time": 0.00019218699981138343,
    "method": "grid",
    "exact": "3"
   },
   "tilted_block": {
-   "s": 3.0,
-   "time": 0.2646246809999866,
-   "exact": "(none better)"
+   "s": 3.0000000005029026,
+   "time": 0.35125443800006906,
+   "exact": "tilted 1x1 block at 45deg, offset (-0.75,-0.75)"
   },
   "numeric": {
    "s": 3.0,
@@ -210,17 +210,17 @@
   "lower_bound": 2.6457513110645907,
   "grid": {
    "s": 3.0,
-   "time": 3.4981999760930194e-05
+   "time": 4.6041000132390764e-05
   },
   "closed_form": {
    "s": 3.0,
-   "time": 0.00021403799973995774,
+   "time": 0.00016372699974454008,
    "method": "grid",
    "exact": "3"
   },
   "tilted_block": {
    "s": 3.0,
-   "time": 2.2059998627810273e-06,
+   "time": 1.811000402085483e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -244,17 +244,17 @@
   "lower_bound": 2.8284271247461903,
   "grid": {
    "s": 3.0,
-   "time": 2.9830000130459666e-05
+   "time": 4.049700055475114e-05
   },
   "closed_form": {
    "s": 3.0,
-   "time": 0.00010287899976901826,
+   "time": 0.0001292749993808684,
    "method": "grid",
    "exact": "3"
   },
   "tilted_block": {
    "s": 3.0,
-   "time": 1.7369998204230797e-06,
+   "time": 1.4899997040629387e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -278,17 +278,17 @@
   "lower_bound": 3.0,
   "grid": {
    "s": 3.0,
-   "time": 2.7750999834097456e-05
+   "time": 3.866600036417367e-05
   },
   "closed_form": {
    "s": 3.0,
-   "time": 0.00010486800010767183,
+   "time": 0.00013265500001580222,
    "method": "grid",
    "exact": "3"
   },
   "tilted_block": {
    "s": 3.0,
-   "time": 1.829000211728271e-06,
+   "time": 1.818999407987576e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -312,18 +312,18 @@
   "lower_bound": 3.1622776601683795,
   "grid": {
    "s": 4.0,
-   "time": 3.28000000990869e-05
+   "time": 4.255899966665311e-05
   },
   "closed_form": {
    "s": 3.7071067811865475,
-   "time": 0.00020108299986532074,
+   "time": 0.0002130070006387541,
    "method": "gobel_strip+L",
    "exact": "(2 + sqrt(2)/2) + 1"
   },
   "tilted_block": {
-   "s": 3.7071067811865475,
-   "time": 0.4817818899996382,
-   "exact": "(none better)"
+   "s": 3.7071067813073886,
+   "time": 1.5878449259998888,
+   "exact": "tilted 1x1 block at 45deg, offset (-0.5,-0.5)"
   },
   "numeric": {
    "s": 3.7071067811865475,
@@ -346,32 +346,32 @@
   "lower_bound": 3.3166247903554,
   "grid": {
    "s": 4.0,
-   "time": 7.149100019887555e-05
+   "time": 5.425300059869187e-05
   },
   "closed_form": {
    "s": 4.0,
-   "time": 0.00036593200002243975,
+   "time": 0.00024845300049491925,
    "method": "grid",
    "exact": "4"
   },
   "tilted_block": {
-   "s": 3.9142135625062306,
-   "time": 1.0415394010001364,
-   "exact": "tilted 2x2 block at 45deg, offset (+0,+0.5)"
+   "s": 3.8890218163725616,
+   "time": 3.878320681000332,
+   "exact": "row chain 2x2 (rot): tilts 48.1deg, row-drift -5deg, slides +0, offset (-0.5,+0)"
   },
   "numeric": {
    "s": 3.8770896598211673,
-   "time": 60.000358695999694,
+   "time": 60.002443710999614,
    "method": "numeric:bisect:drop",
-   "local_opts": 19065,
-   "seeds": 308
+   "local_opts": 19504,
+   "seeds": 312
   },
   "best": {
    "s": 3.8770896598211673,
    "method": "numeric:bisect:drop",
    "exact": "",
    "valid": true,
-   "max_penetration": -5.758726828730687e-12,
+   "max_penetration": -5.758060694915912e-12,
    "max_outside": -5.000444502911705e-13
   }
  },
@@ -382,25 +382,25 @@
   "lower_bound": 3.4641016151377544,
   "grid": {
    "s": 4.0,
-   "time": 3.967600014220807e-05
+   "time": 5.685900032403879e-05
   },
   "closed_form": {
    "s": 4.0,
-   "time": 0.00016144200026246835,
+   "time": 0.00027115800003230106,
    "method": "grid",
    "exact": "4"
   },
   "tilted_block": {
-   "s": 4.0,
-   "time": 0.9582412950003345,
-   "exact": "(none better)"
+   "s": 4.0000000007038015,
+   "time": 0.55490695699973,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 4.0,
-   "time": 60.00206176099982,
+   "time": 60.002155986000616,
    "method": "grid",
-   "local_opts": 17347,
-   "seeds": 310
+   "local_opts": 18181,
+   "seeds": 328
   },
   "best": {
    "s": 4.0,
@@ -418,18 +418,18 @@
   "lower_bound": 3.605551275463989,
   "grid": {
    "s": 4.0,
-   "time": 5.020599974159268e-05
+   "time": 4.647700006898958e-05
   },
   "closed_form": {
    "s": 4.0,
-   "time": 0.00019869399966410128,
+   "time": 0.0003068429996346822,
    "method": "grid",
    "exact": "4"
   },
   "tilted_block": {
-   "s": 4.0,
-   "time": 0.2790196129999458,
-   "exact": "(none better)"
+   "s": 4.000000000703951,
+   "time": 0.472687120000046,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 4.0,
@@ -452,17 +452,17 @@
   "lower_bound": 3.7416573867739413,
   "grid": {
    "s": 4.0,
-   "time": 4.3090999952255515e-05
+   "time": 3.5164999644621275e-05
   },
   "closed_form": {
    "s": 4.0,
-   "time": 0.00019724599997061887,
+   "time": 0.00025456000003032386,
    "method": "grid",
    "exact": "4"
   },
   "tilted_block": {
    "s": 4.0,
-   "time": 1.8669998098630458e-06,
+   "time": 2.333999873371795e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -486,17 +486,17 @@
   "lower_bound": 3.872983346207417,
   "grid": {
    "s": 4.0,
-   "time": 3.985400007877615e-05
+   "time": 2.7973000214842614e-05
   },
   "closed_form": {
    "s": 4.0,
-   "time": 0.00015873700021984405,
+   "time": 0.00015994400018826127,
    "method": "grid",
    "exact": "4"
   },
   "tilted_block": {
    "s": 4.0,
-   "time": 1.6459998732898384e-06,
+   "time": 1.282999619434122e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -520,17 +520,17 @@
   "lower_bound": 4.0,
   "grid": {
    "s": 4.0,
-   "time": 3.698699993037735e-05
+   "time": 4.380100017442601e-05
   },
   "closed_form": {
    "s": 4.0,
-   "time": 0.0001541740002721781,
+   "time": 0.0002362690001973533,
    "method": "grid",
    "exact": "4"
   },
   "tilted_block": {
    "s": 4.0,
-   "time": 1.3930002751294523e-06,
+   "time": 1.4620000001741573e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -554,33 +554,33 @@
   "lower_bound": 4.123105625617661,
   "grid": {
    "s": 5.0,
-   "time": 3.0510000215144828e-05
+   "time": 3.889300023729447e-05
   },
   "closed_form": {
    "s": 4.707106781186548,
-   "time": 0.00023979600018719793,
+   "time": 0.001178706999780843,
    "method": "gobel_strip+L+L",
    "exact": "((2 + sqrt(2)/2) + 1) + 1"
   },
   "tilted_block": {
-   "s": 4.707106781186548,
-   "time": 0.569582119000188,
-   "exact": "(none better)"
+   "s": 4.707106781366973,
+   "time": 0.5482405510001627,
+   "exact": "tilted 1x1 block at 45deg, offset (-1,-1)"
   },
   "numeric": {
-   "s": 4.696994009103614,
-   "time": 60.007469110999864,
-   "method": "numeric:bisect:grid",
-   "local_opts": 14053,
-   "seeds": 202
+   "s": 4.678228199148434,
+   "time": 60.00146806700013,
+   "method": "numeric:bisect:random",
+   "local_opts": 12635,
+   "seeds": 183
   },
   "best": {
-   "s": 4.696994009103614,
-   "method": "numeric:bisect:grid",
+   "s": 4.678228199148434,
+   "method": "numeric:bisect:random",
    "exact": "",
    "valid": true,
-   "max_penetration": -1.267346894096022e-09,
-   "max_outside": -5.000444502911705e-13
+   "max_penetration": -3.5117020402708476e-10,
+   "max_outside": -5.085993848297221e-10
   }
  },
  {
@@ -590,33 +590,33 @@
   "lower_bound": 4.242640687119285,
   "grid": {
    "s": 5.0,
-   "time": 4.8441999751958065e-05
+   "time": 4.6304000534291845e-05
   },
   "closed_form": {
-   "s": 5.0,
-   "time": 0.0002817109998431988,
-   "method": "grid",
-   "exact": "5"
+   "s": 4.822875655532295,
+   "time": 0.0014061560004847706,
+   "method": "sqrt7",
+   "exact": "7/2 + sqrt(7)/2"
   },
   "tilted_block": {
-   "s": 4.828427124933703,
-   "time": 1.4254794029998266,
-   "exact": "tilted 1x4 block at 45deg, offset (+0,+0)"
+   "s": 4.822875655532295,
+   "time": 0.2710428779992071,
+   "exact": "(none better)"
   },
   "numeric": {
-   "s": 4.822915246311047,
-   "time": 60.003655944,
-   "method": "numeric:bisect:random",
-   "local_opts": 12351,
-   "seeds": 191
+   "s": 4.822875655532295,
+   "time": 60.003544469999724,
+   "method": "sqrt7",
+   "local_opts": 11554,
+   "seeds": 185
   },
   "best": {
-   "s": 4.822915246311047,
-   "method": "numeric:bisect:random",
-   "exact": "",
+   "s": 4.822875655532295,
+   "method": "sqrt7",
+   "exact": "7/2 + sqrt(7)/2",
    "valid": true,
-   "max_penetration": -8.248957072964913e-12,
-   "max_outside": -5.000444502911705e-13
+   "max_penetration": 6.661338147750939e-16,
+   "max_outside": 0.0
   }
  },
  {
@@ -626,33 +626,33 @@
   "lower_bound": 4.358898943540674,
   "grid": {
    "s": 5.0,
-   "time": 4.2053000015584985e-05
+   "time": 4.392299979372183e-05
   },
   "closed_form": {
-   "s": 5.0,
-   "time": 0.0003057899998566427,
-   "method": "grid",
-   "exact": "5"
+   "s": 4.885618083164127,
+   "time": 0.00048133599921129644,
+   "method": "wainwright",
+   "exact": "3 + 4*sqrt(2)/3"
   },
   "tilted_block": {
-   "s": 4.914213562565771,
-   "time": 3.453859263999675,
-   "exact": "tilted 2x4 block at 45deg, offset (-0.25,-0.25)"
+   "s": 4.885618083164127,
+   "time": 0.2778469300001234,
+   "exact": "(none better)"
   },
   "numeric": {
-   "s": 4.886753400428424,
-   "time": 60.02234339100005,
-   "method": "numeric:tilted_block",
-   "local_opts": 7204,
-   "seeds": 127
+   "s": 4.885618083164127,
+   "time": 60.00347411600069,
+   "method": "wainwright",
+   "local_opts": 11477,
+   "seeds": 218
   },
   "best": {
-   "s": 4.886753400428424,
-   "method": "numeric:tilted_block",
-   "exact": "",
+   "s": 4.885618083164127,
+   "method": "wainwright",
+   "exact": "3 + 4*sqrt(2)/3",
    "valid": true,
-   "max_penetration": -2.5016655413878652e-11,
-   "max_outside": -5.000444502911705e-13
+   "max_penetration": 6.661338147750939e-16,
+   "max_outside": 0.0
   }
  },
  {
@@ -662,25 +662,25 @@
   "lower_bound": 4.47213595499958,
   "grid": {
    "s": 5.0,
-   "time": 4.8088000312418444e-05
+   "time": 4.7014999836392235e-05
   },
   "closed_form": {
    "s": 5.0,
-   "time": 0.0003888439996444504,
+   "time": 0.000399534000280255,
    "method": "grid",
    "exact": "5"
   },
   "tilted_block": {
-   "s": 5.0,
-   "time": 2.024892056000226,
-   "exact": "(none better)"
+   "s": 5.000000000904889,
+   "time": 1.2424234299996897,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 5.0,
-   "time": 60.00218898600042,
+   "time": 60.002003073000196,
    "method": "grid",
-   "local_opts": 6952,
-   "seeds": 130
+   "local_opts": 11167,
+   "seeds": 203
   },
   "best": {
    "s": 5.0,
@@ -698,25 +698,25 @@
   "lower_bound": 4.58257569495584,
   "grid": {
    "s": 5.0,
-   "time": 6.812599986005807e-05
+   "time": 5.160099954082398e-05
   },
   "closed_form": {
    "s": 5.0,
-   "time": 0.00045913800022390205,
+   "time": 0.0004946919998474186,
    "method": "grid",
    "exact": "5"
   },
   "tilted_block": {
-   "s": 5.0,
-   "time": 1.4253738940001313,
-   "exact": "(none better)"
+   "s": 5.000000000904929,
+   "time": 0.9773261919999641,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 5.0,
-   "time": 60.0010694030002,
+   "time": 60.01006184699963,
    "method": "grid",
-   "local_opts": 11466,
-   "seeds": 213
+   "local_opts": 9925,
+   "seeds": 180
   },
   "best": {
    "s": 5.0,
@@ -734,18 +734,18 @@
   "lower_bound": 4.69041575982343,
   "grid": {
    "s": 5.0,
-   "time": 5.3278999985195696e-05
+   "time": 5.237599998508813e-05
   },
   "closed_form": {
    "s": 5.0,
-   "time": 0.00033262300030401093,
+   "time": 0.0005252520004432881,
    "method": "grid",
    "exact": "5"
   },
   "tilted_block": {
-   "s": 5.0,
-   "time": 0.7460266500002035,
-   "exact": "(none better)"
+   "s": 5.000000000904905,
+   "time": 0.7470131390000461,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 5.0,
@@ -768,17 +768,17 @@
   "lower_bound": 4.795831523312719,
   "grid": {
    "s": 5.0,
-   "time": 5.255700034467736e-05
+   "time": 4.252400049153948e-05
   },
   "closed_form": {
    "s": 5.0,
-   "time": 0.0003282899997429922,
+   "time": 0.000362271999620134,
    "method": "grid",
    "exact": "5"
   },
   "tilted_block": {
    "s": 5.0,
-   "time": 2.3580000743095297e-06,
+   "time": 1.9689996406668797e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -802,17 +802,17 @@
   "lower_bound": 4.898979485566356,
   "grid": {
    "s": 5.0,
-   "time": 5.594300000666408e-05
+   "time": 4.0439999793306924e-05
   },
   "closed_form": {
    "s": 5.0,
-   "time": 0.00027480700009618886,
+   "time": 0.0003008819994647638,
    "method": "grid",
    "exact": "5"
   },
   "tilted_block": {
    "s": 5.0,
-   "time": 1.5919999896141235e-06,
+   "time": 1.4700008250656538e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -836,17 +836,17 @@
   "lower_bound": 5.0,
   "grid": {
    "s": 5.0,
-   "time": 6.849600003988598e-05
+   "time": 3.754400040634209e-05
   },
   "closed_form": {
    "s": 5.0,
-   "time": 0.0002511280004000582,
+   "time": 0.0003025559999514371,
    "method": "grid",
    "exact": "5"
   },
   "tilted_block": {
    "s": 5.0,
-   "time": 1.826000243454473e-06,
+   "time": 1.4870001905364916e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -870,33 +870,33 @@
   "lower_bound": 5.0990195135927845,
   "grid": {
    "s": 6.0,
-   "time": 3.4699000025284477e-05
+   "time": 3.795999964495422e-05
   },
   "closed_form": {
    "s": 5.707106781186548,
-   "time": 0.0004533070000434236,
+   "time": 0.24263902599977882,
    "method": "gobel_strip+L+L+L",
    "exact": "(((2 + sqrt(2)/2) + 1) + 1) + 1"
   },
   "tilted_block": {
-   "s": 5.621320343794426,
-   "time": 2.2900387129998308,
-   "exact": "tilted 3x3 block at 45deg, offset (+0,+0.5)"
+   "s": 5.621320343794506,
+   "time": 1.8913102329997855,
+   "exact": "tilted 3x3 block at 45deg, offset (-0.5,+0)"
   },
   "numeric": {
-   "s": 5.621320343794426,
-   "time": 60.00056323800027,
+   "s": 5.621320343794506,
+   "time": 60.009873818000415,
    "method": "tilted_block",
-   "local_opts": 9003,
-   "seeds": 132
+   "local_opts": 8015,
+   "seeds": 110
   },
   "best": {
-   "s": 5.621320343794426,
+   "s": 5.621320343794506,
    "method": "tilted_block",
-   "exact": "tilted 3x3 block at 45deg, offset (+0,+0.5)",
+   "exact": "tilted 3x3 block at 45deg, offset (-0.5,+0)",
    "valid": true,
    "max_penetration": -1.2070344723724702e-12,
-   "max_outside": -2.9772961873675285e-11
+   "max_outside": -2.978317592550184e-11
   }
  },
  {
@@ -906,25 +906,25 @@
   "lower_bound": 5.196152422706632,
   "grid": {
    "s": 6.0,
-   "time": 4.170700003669481e-05
+   "time": 5.6566999774076976e-05
   },
   "closed_form": {
    "s": 5.707106781186548,
-   "time": 0.0004895019997093186,
+   "time": 0.23848799999996118,
    "method": "gobel_strip",
    "exact": "5 + sqrt(2)/2"
   },
   "tilted_block": {
-   "s": 5.707106781186548,
-   "time": 0.2757954549997521,
-   "exact": "(none better)"
+   "s": 5.707106781426533,
+   "time": 2.19257172000016,
+   "exact": "tilted 1x5 block at 45deg, offset (+0,+0)"
   },
   "numeric": {
    "s": 5.707106781186548,
-   "time": 60.00482365400012,
+   "time": 60.00483639200047,
    "method": "gobel_strip",
-   "local_opts": 9048,
-   "seeds": 151
+   "local_opts": 7299,
+   "seeds": 117
   },
   "best": {
    "s": 5.707106781186548,
@@ -942,25 +942,25 @@
   "lower_bound": 5.291502622129181,
   "grid": {
    "s": 6.0,
-   "time": 5.009500000596745e-05
+   "time": 4.4425999476516154e-05
   },
   "closed_form": {
    "s": 5.82842712474619,
-   "time": 0.0005290240001158963,
+   "time": 0.0007704839999860269,
    "method": "gobel_square",
    "exact": "3 + 4*sqrt(2)/2"
   },
   "tilted_block": {
-   "s": 5.82842712474619,
-   "time": 0.10317279299988513,
-   "exact": "(none better)"
+   "s": 5.82842712499339,
+   "time": 1.738172301999839,
+   "exact": "tilted 4x4 block at 45deg, offset (+0,+0)"
   },
   "numeric": {
    "s": 5.82842712474619,
-   "time": 60.002275546999954,
+   "time": 60.006678675999865,
    "method": "gobel_square",
-   "local_opts": 9044,
-   "seeds": 164
+   "local_opts": 7208,
+   "seeds": 128
   },
   "best": {
    "s": 5.82842712474619,
@@ -978,25 +978,25 @@
   "lower_bound": 5.385164807134504,
   "grid": {
    "s": 6.0,
-   "time": 6.619600026169792e-05
+   "time": 4.655900011130143e-05
   },
   "closed_form": {
    "s": 6.0,
-   "time": 0.0004467190001378185,
+   "time": 0.0005822570001328131,
    "method": "grid",
    "exact": "6"
   },
   "tilted_block": {
-   "s": 6.0,
-   "time": 2.662959358999615,
-   "exact": "(none better)"
+   "s": 6.000000001105747,
+   "time": 2.4114751540000725,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 6.0,
-   "time": 60.000701526000285,
+   "time": 60.00589992799996,
    "method": "grid",
-   "local_opts": 8282,
-   "seeds": 151
+   "local_opts": 7455,
+   "seeds": 139
   },
   "best": {
    "s": 6.0,
@@ -1014,25 +1014,25 @@
   "lower_bound": 5.477225575051661,
   "grid": {
    "s": 6.0,
-   "time": 6.355000004987232e-05
+   "time": 4.7818999519222416e-05
   },
   "closed_form": {
    "s": 6.0,
-   "time": 0.0008476820003124885,
+   "time": 0.0005159959991942742,
    "method": "grid",
    "exact": "6"
   },
   "tilted_block": {
-   "s": 6.0,
-   "time": 2.440695708000021,
-   "exact": "(none better)"
+   "s": 6.0000000011058345,
+   "time": 2.2134676579998995,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 6.0,
-   "time": 60.00180529799991,
+   "time": 60.006460053999945,
    "method": "grid",
-   "local_opts": 8501,
-   "seeds": 154
+   "local_opts": 7484,
+   "seeds": 138
   },
   "best": {
    "s": 6.0,
@@ -1050,25 +1050,25 @@
   "lower_bound": 5.5677643628300215,
   "grid": {
    "s": 6.0,
-   "time": 6.631099995502154e-05
+   "time": 4.5449000026565045e-05
   },
   "closed_form": {
    "s": 6.0,
-   "time": 0.0005861969998477434,
+   "time": 0.0005314960008035996,
    "method": "grid",
    "exact": "6"
   },
   "tilted_block": {
-   "s": 6.0,
-   "time": 1.1230235140001241,
-   "exact": "(none better)"
+   "s": 6.000000001105903,
+   "time": 1.4661912239998856,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 6.0,
-   "time": 60.00429529500025,
+   "time": 60.00084668200088,
    "method": "grid",
-   "local_opts": 8524,
-   "seeds": 153
+   "local_opts": 7416,
+   "seeds": 135
   },
   "best": {
    "s": 6.0,
@@ -1086,25 +1086,25 @@
   "lower_bound": 5.656854249492381,
   "grid": {
    "s": 6.0,
-   "time": 5.3935000323690474e-05
+   "time": 5.0845000259869266e-05
   },
   "closed_form": {
    "s": 6.0,
-   "time": 0.00042075500005012145,
+   "time": 0.0006035440001141978,
    "method": "grid",
    "exact": "6"
   },
   "tilted_block": {
-   "s": 6.0,
-   "time": 0.6940373059997,
-   "exact": "(none better)"
+   "s": 6.000000001105903,
+   "time": 1.107187043000522,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 6.0,
-   "time": 60.00522727899988,
+   "time": 60.00562410200018,
    "method": "grid",
-   "local_opts": 8279,
-   "seeds": 144
+   "local_opts": 6750,
+   "seeds": 119
   },
   "best": {
    "s": 6.0,
@@ -1122,18 +1122,18 @@
   "lower_bound": 5.744562646538029,
   "grid": {
    "s": 6.0,
-   "time": 5.297600000631064e-05
+   "time": 7.222699969133828e-05
   },
   "closed_form": {
    "s": 6.0,
-   "time": 0.000423794999733218,
+   "time": 0.0005957969997325563,
    "method": "grid",
    "exact": "6"
   },
   "tilted_block": {
-   "s": 6.0,
-   "time": 0.3181310609998036,
-   "exact": "(none better)"
+   "s": 6.0000000011059615,
+   "time": 0.9200620989995514,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 6.0,
@@ -1156,17 +1156,17 @@
   "lower_bound": 5.830951894845301,
   "grid": {
    "s": 6.0,
-   "time": 4.784299972016015e-05
+   "time": 4.472900036489591e-05
   },
   "closed_form": {
    "s": 6.0,
-   "time": 0.0004664539997065731,
+   "time": 0.0005334759998731897,
    "method": "grid",
    "exact": "6"
   },
   "tilted_block": {
    "s": 6.0,
-   "time": 1.5949999578879215e-06,
+   "time": 1.6590001905569807e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -1190,17 +1190,17 @@
   "lower_bound": 5.916079783099616,
   "grid": {
    "s": 6.0,
-   "time": 4.04800002797856e-05
+   "time": 5.142499958310509e-05
   },
   "closed_form": {
    "s": 6.0,
-   "time": 0.0004222190000291448,
+   "time": 0.0005268760005492368,
    "method": "grid",
    "exact": "6"
   },
   "tilted_block": {
    "s": 6.0,
-   "time": 1.3769999895885121e-06,
+   "time": 1.5579998944303952e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -1224,17 +1224,17 @@
   "lower_bound": 6.0,
   "grid": {
    "s": 6.0,
-   "time": 5.564900038734777e-05
+   "time": 4.702900059783133e-05
   },
   "closed_form": {
    "s": 6.0,
-   "time": 0.0003955669999413658,
+   "time": 0.0005205830002523726,
    "method": "grid",
    "exact": "6"
   },
   "tilted_block": {
    "s": 6.0,
-   "time": 1.3089997992210556e-06,
+   "time": 1.6409994714194909e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -1258,25 +1258,25 @@
   "lower_bound": 6.082762530298219,
   "grid": {
    "s": 7.0,
-   "time": 3.670600017358083e-05
+   "time": 3.9831999856687617e-05
   },
   "closed_form": {
    "s": 6.707106781186548,
-   "time": 0.0006108349998612539,
+   "time": 0.24716353900021204,
    "method": "gobel_strip+L+L+L+L",
    "exact": "((((2 + sqrt(2)/2) + 1) + 1) + 1) + 1"
   },
   "tilted_block": {
    "s": 6.62132034385404,
-   "time": 1.4341734960003123,
+   "time": 1.9015727639998659,
    "exact": "tilted 3x3 block at 45deg, offset (-1,-0.5)"
   },
   "numeric": {
    "s": 6.62132034385404,
-   "time": 60.00370005400009,
+   "time": 60.00416969300022,
    "method": "tilted_block",
-   "local_opts": 6632,
-   "seeds": 94
+   "local_opts": 5446,
+   "seeds": 80
   },
   "best": {
    "s": 6.62132034385404,
@@ -1294,25 +1294,25 @@
   "lower_bound": 6.164414002968976,
   "grid": {
    "s": 7.0,
-   "time": 7.73970000409463e-05
+   "time": 4.5327000407269225e-05
   },
   "closed_form": {
    "s": 6.707106781186548,
-   "time": 0.0012244639997334161,
+   "time": 0.2554030600003898,
    "method": "gobel_strip+L",
    "exact": "(5 + sqrt(2)/2) + 1"
   },
   "tilted_block": {
-   "s": 6.707106781186548,
-   "time": 0.540892998000345,
-   "exact": "(none better)"
+   "s": 6.707106781486131,
+   "time": 3.2099247899996044,
+   "exact": "tilted 1x5 block at 45deg, offset (-0.5,-0.5)"
   },
   "numeric": {
    "s": 6.707106781186548,
-   "time": 60.005856039000264,
+   "time": 60.013858626,
    "method": "gobel_strip+L",
-   "local_opts": 6407,
-   "seeds": 114
+   "local_opts": 4964,
+   "seeds": 86
   },
   "best": {
    "s": 6.707106781186548,
@@ -1330,32 +1330,32 @@
   "lower_bound": 6.244997998398398,
   "grid": {
    "s": 7.0,
-   "time": 6.979599993428565e-05
+   "time": 6.729699998686556e-05
   },
   "closed_form": {
-   "s": 6.82842712474619,
-   "time": 0.0007552060001216887,
-   "method": "gobel_square+L",
-   "exact": "(3 + 4*sqrt(2)/2) + 1"
+   "s": 6.822875655532295,
+   "time": 0.0009050409998963005,
+   "method": "sqrt7",
+   "exact": "11/2 + sqrt(7)/2"
   },
   "tilted_block": {
-   "s": 6.82842712474619,
-   "time": 0.15790910499981692,
+   "s": 6.822875655532295,
+   "time": 0.5669185549995746,
    "exact": "(none better)"
   },
   "numeric": {
-   "s": 6.82842712474619,
-   "time": 60.01035393500024,
-   "method": "gobel_square+L",
-   "local_opts": 6376,
-   "seeds": 115
+   "s": 6.822875655532295,
+   "time": 60.00692340800015,
+   "method": "sqrt7",
+   "local_opts": 4773,
+   "seeds": 84
   },
   "best": {
-   "s": 6.82842712474619,
-   "method": "gobel_square+L",
-   "exact": "(3 + 4*sqrt(2)/2) + 1",
+   "s": 6.822875655532295,
+   "method": "sqrt7",
+   "exact": "11/2 + sqrt(7)/2",
    "valid": true,
-   "max_penetration": 1.1102230246251565e-16,
+   "max_penetration": 1.5543122344752192e-15,
    "max_outside": 0.0
   }
  },
@@ -1366,25 +1366,25 @@
   "lower_bound": 6.324555320336759,
   "grid": {
    "s": 7.0,
-   "time": 4.997199994249968e-05
+   "time": 5.897799928789027e-05
   },
   "closed_form": {
    "s": 6.82842712474619,
-   "time": 0.0010308330001862487,
+   "time": 0.0008989740008473746,
    "method": "gobel_square",
    "exact": "4 + 4*sqrt(2)/2"
   },
   "tilted_block": {
-   "s": 6.82842712474619,
-   "time": 0.12950848800028325,
-   "exact": "(none better)"
+   "s": 6.828427125052979,
+   "time": 1.836544746999607,
+   "exact": "tilted 4x4 block at 45deg, offset (+0,+0)"
   },
   "numeric": {
    "s": 6.82842712474619,
-   "time": 60.00861095800019,
+   "time": 60.00649020500077,
    "method": "gobel_square",
-   "local_opts": 6121,
-   "seeds": 112
+   "local_opts": 4581,
+   "seeds": 83
   },
   "best": {
    "s": 6.82842712474619,
@@ -1402,33 +1402,33 @@
   "lower_bound": 6.4031242374328485,
   "grid": {
    "s": 7.0,
-   "time": 9.84879998213728e-05
+   "time": 4.618800085154362e-05
   },
   "closed_form": {
    "s": 7.0,
-   "time": 0.000803211999937048,
+   "time": 0.001127305000409251,
    "method": "grid",
    "exact": "7"
   },
   "tilted_block": {
-   "s": 6.9497474686196545,
-   "time": 5.175264788999812,
+   "s": 6.94974746861986,
+   "time": 3.1172276400002374,
    "exact": "tilted 2x7 block at 45deg, offset (-0.25,-0.25)"
   },
   "numeric": {
-   "s": 6.9497474686196545,
-   "time": 60.004103821999706,
+   "s": 6.94974746861986,
+   "time": 60.00084325200078,
    "method": "tilted_block",
-   "local_opts": 6290,
-   "seeds": 117
+   "local_opts": 4819,
+   "seeds": 90
   },
   "best": {
-   "s": 6.9497474686196545,
+   "s": 6.94974746861986,
    "method": "tilted_block",
    "exact": "tilted 2x7 block at 45deg, offset (-0.25,-0.25)",
    "valid": true,
-   "max_penetration": -1.2074785615823203e-12,
-   "max_outside": -2.976685564703985e-11
+   "max_penetration": -1.2070344723724702e-12,
+   "max_outside": -2.97859514830634e-11
   }
  },
  {
@@ -1438,25 +1438,25 @@
   "lower_bound": 6.48074069840786,
   "grid": {
    "s": 7.0,
-   "time": 8.663100015837699e-05
+   "time": 5.1312999858055264e-05
   },
   "closed_form": {
    "s": 7.0,
-   "time": 0.0007927950000521378,
+   "time": 0.0009556089999023243,
    "method": "grid",
    "exact": "7"
   },
   "tilted_block": {
-   "s": 7.0,
-   "time": 2.8350707099998544,
-   "exact": "(none better)"
+   "s": 7.000000001306978,
+   "time": 2.8796970720004538,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 7.0,
-   "time": 60.004221142000006,
+   "time": 60.00604734799981,
    "method": "grid",
-   "local_opts": 6196,
-   "seeds": 110
+   "local_opts": 5056,
+   "seeds": 88
   },
   "best": {
    "s": 7.0,
@@ -1474,25 +1474,25 @@
   "lower_bound": 6.557438524302,
   "grid": {
    "s": 7.0,
-   "time": 4.699700002674945e-05
+   "time": 5.17210000907653e-05
   },
   "closed_form": {
    "s": 7.0,
-   "time": 0.0006557520000569639,
+   "time": 0.0008237219999500667,
    "method": "grid",
    "exact": "7"
   },
   "tilted_block": {
-   "s": 7.0,
-   "time": 2.048821461999978,
-   "exact": "(none better)"
+   "s": 7.000000001306908,
+   "time": 2.1450867650000873,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 7.0,
-   "time": 60.00619074799988,
+   "time": 60.0052675449997,
    "method": "grid",
-   "local_opts": 5873,
-   "seeds": 102
+   "local_opts": 5167,
+   "seeds": 88
   },
   "best": {
    "s": 7.0,
@@ -1510,25 +1510,25 @@
   "lower_bound": 6.6332495807108,
   "grid": {
    "s": 7.0,
-   "time": 5.087299996375805e-05
+   "time": 5.061899992142571e-05
   },
   "closed_form": {
    "s": 7.0,
-   "time": 0.0006325560002551356,
+   "time": 0.0008543050007574493,
    "method": "grid",
    "exact": "7"
   },
   "tilted_block": {
-   "s": 7.0,
-   "time": 1.1805330930001219,
-   "exact": "(none better)"
+   "s": 7.000000001306793,
+   "time": 1.6581262890003927,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 7.0,
-   "time": 60.014458292999734,
+   "time": 60.0031368380005,
    "method": "grid",
-   "local_opts": 5745,
-   "seeds": 97
+   "local_opts": 4958,
+   "seeds": 85
   },
   "best": {
    "s": 7.0,
@@ -1546,25 +1546,25 @@
   "lower_bound": 6.708203932499369,
   "grid": {
    "s": 7.0,
-   "time": 5.550099967877031e-05
+   "time": 7.570899924758123e-05
   },
   "closed_form": {
    "s": 7.0,
-   "time": 0.0007440350000251783,
+   "time": 0.0009345320004285895,
    "method": "grid",
    "exact": "7"
   },
   "tilted_block": {
-   "s": 7.0,
-   "time": 0.7703603750001093,
-   "exact": "(none better)"
+   "s": 7.000000001306851,
+   "time": 1.3828327490000447,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 7.0,
-   "time": 60.01758923499983,
+   "time": 60.00474850699993,
    "method": "grid",
-   "local_opts": 5949,
-   "seeds": 96
+   "local_opts": 4674,
+   "seeds": 77
   },
   "best": {
    "s": 7.0,
@@ -1582,18 +1582,18 @@
   "lower_bound": 6.782329983125268,
   "grid": {
    "s": 7.0,
-   "time": 4.5173000216891523e-05
+   "time": 7.292499958566623e-05
   },
   "closed_form": {
    "s": 7.0,
-   "time": 0.0011487519996080664,
+   "time": 0.0009237240001311875,
    "method": "grid",
    "exact": "7"
   },
   "tilted_block": {
-   "s": 7.0,
-   "time": 0.3510832410001967,
-   "exact": "(none better)"
+   "s": 7.000000001306978,
+   "time": 1.1300296839999646,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 7.0,
@@ -1616,17 +1616,17 @@
   "lower_bound": 6.855654600401044,
   "grid": {
    "s": 7.0,
-   "time": 5.2301999858173076e-05
+   "time": 5.2796999625570606e-05
   },
   "closed_form": {
    "s": 7.0,
-   "time": 0.0006736840000485245,
+   "time": 0.0009314199996879324,
    "method": "grid",
    "exact": "7"
   },
   "tilted_block": {
    "s": 7.0,
-   "time": 2.17200022234465e-06,
+   "time": 2.2060003175283782e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -1650,17 +1650,17 @@
   "lower_bound": 6.928203230275509,
   "grid": {
    "s": 7.0,
-   "time": 4.217200012135436e-05
+   "time": 5.074199998489348e-05
   },
   "closed_form": {
    "s": 7.0,
-   "time": 0.0007137600000532984,
+   "time": 0.0008066569998845807,
    "method": "grid",
    "exact": "7"
   },
   "tilted_block": {
    "s": 7.0,
-   "time": 1.720000000204891e-06,
+   "time": 1.2149994290666655e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -1684,17 +1684,17 @@
   "lower_bound": 7.0,
   "grid": {
    "s": 7.0,
-   "time": 4.302300021663541e-05
+   "time": 4.6225000005506445e-05
   },
   "closed_form": {
    "s": 7.0,
-   "time": 0.0006576420000783401,
+   "time": 0.0008568160001232172,
    "method": "grid",
    "exact": "7"
   },
   "tilted_block": {
    "s": 7.0,
-   "time": 1.6279996088996995e-06,
+   "time": 1.7170004866784438e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -1718,33 +1718,33 @@
   "lower_bound": 7.0710678118654755,
   "grid": {
    "s": 8.0,
-   "time": 4.294400014259736e-05
+   "time": 4.6256000132416375e-05
   },
   "closed_form": {
-   "s": 7.707106781186548,
-   "time": 0.0008417630001531506,
-   "method": "gobel_strip+L+L+L+L+L",
-   "exact": "(((((2 + sqrt(2)/2) + 1) + 1) + 1) + 1) + 1"
+   "s": 7.571428571428571,
+   "time": 0.002943540000160283,
+   "method": "schadt",
+   "exact": "7 + 4/7"
   },
   "tilted_block": {
-   "s": 7.621320343913359,
-   "time": 1.8874794049997945,
-   "exact": "tilted 3x3 block at 45deg, offset (-1,-0.5)"
+   "s": 7.571428571428571,
+   "time": 0.8349538610000309,
+   "exact": "(none better)"
   },
   "numeric": {
-   "s": 7.621320343913359,
-   "time": 60.00260275999972,
-   "method": "tilted_block",
-   "local_opts": 5111,
-   "seeds": 85
+   "s": 7.571428571428571,
+   "time": 60.08772434799994,
+   "method": "schadt",
+   "local_opts": 4015,
+   "seeds": 59
   },
   "best": {
-   "s": 7.621320343913359,
-   "method": "tilted_block",
-   "exact": "tilted 3x3 block at 45deg, offset (-1,-0.5)",
+   "s": 7.571428571428571,
+   "method": "schadt",
+   "exact": "7 + 4/7",
    "valid": true,
-   "max_penetration": -1.2070344723724702e-12,
-   "max_outside": -2.975952817507732e-11
+   "max_penetration": 8.881784197001252e-16,
+   "max_outside": 0.0
   }
  },
  {
@@ -1754,25 +1754,25 @@
   "lower_bound": 7.14142842854285,
   "grid": {
    "s": 8.0,
-   "time": 5.432899979496142e-05
+   "time": 4.643299962481251e-05
   },
   "closed_form": {
    "s": 7.707106781186548,
-   "time": 0.0010477880000507866,
+   "time": 0.0034427239997967263,
    "method": "gobel_strip+L+L",
    "exact": "((5 + sqrt(2)/2) + 1) + 1"
   },
   "tilted_block": {
-   "s": 7.707106781186548,
-   "time": 0.80162777500027,
-   "exact": "(none better)"
+   "s": 7.707106781545635,
+   "time": 2.1818529990005118,
+   "exact": "tilted 1x5 block at 45deg, offset (-1,-1)"
   },
   "numeric": {
    "s": 7.707106781186548,
-   "time": 60.00999542599993,
+   "time": 60.00264418799998,
    "method": "gobel_strip+L+L",
-   "local_opts": 5011,
-   "seeds": 92
+   "local_opts": 3802,
+   "seeds": 72
   },
   "best": {
    "s": 7.707106781186548,
@@ -1790,25 +1790,25 @@
   "lower_bound": 7.211102550927978,
   "grid": {
    "s": 8.0,
-   "time": 5.066299991085543e-05
+   "time": 5.5872999837447423e-05
   },
   "closed_form": {
    "s": 7.707106781186548,
-   "time": 0.0009538770000290242,
+   "time": 0.00132750800003123,
    "method": "gobel_strip",
    "exact": "7 + sqrt(2)/2"
   },
   "tilted_block": {
-   "s": 7.707106781186548,
-   "time": 0.21722212299982857,
-   "exact": "(none better)"
+   "s": 7.707106781545696,
+   "time": 2.807397062000746,
+   "exact": "tilted 1x8 block at 45deg, offset (+0,+0)"
   },
   "numeric": {
    "s": 7.707106781186548,
-   "time": 60.000469811000585,
+   "time": 60.020543902999634,
    "method": "gobel_strip",
-   "local_opts": 4901,
-   "seeds": 95
+   "local_opts": 3375,
+   "seeds": 60
   },
   "best": {
    "s": 7.707106781186548,
@@ -1826,32 +1826,32 @@
   "lower_bound": 7.280109889280518,
   "grid": {
    "s": 8.0,
-   "time": 8.183400041161804e-05
+   "time": 7.729600019956706e-05
   },
   "closed_form": {
-   "s": 7.82842712474619,
-   "time": 0.0016632099996058969,
-   "method": "gobel_square+L",
-   "exact": "(4 + 4*sqrt(2)/2) + 1"
+   "s": 7.822875655532295,
+   "time": 0.002071119999527582,
+   "method": "sqrt7",
+   "exact": "13/2 + sqrt(7)/2"
   },
   "tilted_block": {
-   "s": 7.82842712474619,
-   "time": 0.3552406210001209,
+   "s": 7.822875655532295,
+   "time": 1.036168589999761,
    "exact": "(none better)"
   },
   "numeric": {
-   "s": 7.82842712474619,
-   "time": 60.03994478200002,
-   "method": "gobel_square+L",
-   "local_opts": 5006,
-   "seeds": 88
+   "s": 7.822875655532295,
+   "time": 60.04975883900079,
+   "method": "sqrt7",
+   "local_opts": 3024,
+   "seeds": 55
   },
   "best": {
-   "s": 7.82842712474619,
-   "method": "gobel_square+L",
-   "exact": "(4 + 4*sqrt(2)/2) + 1",
+   "s": 7.822875655532295,
+   "method": "sqrt7",
+   "exact": "13/2 + sqrt(7)/2",
    "valid": true,
-   "max_penetration": 6.661338147750939e-16,
+   "max_penetration": 8.881784197001252e-16,
    "max_outside": 0.0
   }
  },
@@ -1862,33 +1862,33 @@
   "lower_bound": 7.3484692283495345,
   "grid": {
    "s": 8.0,
-   "time": 4.974900002707727e-05
+   "time": 4.9934000344364904e-05
   },
   "closed_form": {
-   "s": 8.0,
-   "time": 0.0009829689997786772,
-   "method": "grid",
-   "exact": "8"
+   "s": 7.84666719284349,
+   "time": 0.0011504139993121498,
+   "method": "devincentis",
+   "exact": "7 - sqrt(2)/2 + sqrt(1 + sqrt(2))"
   },
   "tilted_block": {
-   "s": 7.91421356274444,
-   "time": 6.704299921999336,
-   "exact": "tilted 2x8 block at 45deg, offset (-0.25,-0.25)"
+   "s": 7.84666719284349,
+   "time": 0.944437356999515,
+   "exact": "(none better)"
   },
   "numeric": {
-   "s": 7.85696157101893,
-   "time": 60.0094076409996,
-   "method": "numeric:tilted_block",
-   "local_opts": 4960,
-   "seeds": 88
+   "s": 7.84666719284349,
+   "time": 60.00907704600013,
+   "method": "devincentis",
+   "local_opts": 2658,
+   "seeds": 48
   },
   "best": {
-   "s": 7.85696157101893,
-   "method": "numeric:tilted_block",
-   "exact": "",
+   "s": 7.84666719284349,
+   "method": "devincentis",
+   "exact": "7 - sqrt(2)/2 + sqrt(1 + sqrt(2))",
    "valid": true,
-   "max_penetration": -1.196112098256208e-10,
-   "max_outside": -4.991562718714704e-13
+   "max_penetration": 3.774758283725532e-15,
+   "max_outside": 0.0
   }
  },
  {
@@ -1898,25 +1898,25 @@
   "lower_bound": 7.416198487095663,
   "grid": {
    "s": 8.0,
-   "time": 5.4414000260294415e-05
+   "time": 4.9484000555821694e-05
   },
   "closed_form": {
    "s": 8.0,
-   "time": 0.0010284730005878373,
+   "time": 0.0011892599995917408,
    "method": "grid",
    "exact": "8"
   },
   "tilted_block": {
-   "s": 8.0,
-   "time": 5.384767320000719,
-   "exact": "(none better)"
+   "s": 8.000000001507894,
+   "time": 5.694559460998789,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 8.0,
-   "time": 60.00927841500015,
+   "time": 60.01056534499912,
    "method": "grid",
-   "local_opts": 4941,
-   "seeds": 84
+   "local_opts": 2920,
+   "seeds": 51
   },
   "best": {
    "s": 8.0,
@@ -1934,25 +1934,25 @@
   "lower_bound": 7.483314773547883,
   "grid": {
    "s": 8.0,
-   "time": 0.00011051799992856104
+   "time": 4.635400000552181e-05
   },
   "closed_form": {
    "s": 8.0,
-   "time": 0.0009509250003247871,
+   "time": 0.0011522200002218597,
    "method": "grid",
    "exact": "8"
   },
   "tilted_block": {
-   "s": 8.0,
-   "time": 4.528901587000291,
-   "exact": "(none better)"
+   "s": 8.000000001507654,
+   "time": 5.169692507000946,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 8.0,
-   "time": 60.00657718399998,
+   "time": 60.00746452199928,
    "method": "grid",
-   "local_opts": 4761,
-   "seeds": 79
+   "local_opts": 3193,
+   "seeds": 55
   },
   "best": {
    "s": 8.0,
@@ -1970,25 +1970,25 @@
   "lower_bound": 7.54983443527075,
   "grid": {
    "s": 8.0,
-   "time": 5.281799985823454e-05
+   "time": 4.9079000746132806e-05
   },
   "closed_form": {
    "s": 8.0,
-   "time": 0.0011348269999871263,
+   "time": 0.0014226729999791132,
    "method": "grid",
    "exact": "8"
   },
   "tilted_block": {
-   "s": 8.0,
-   "time": 2.611626034999972,
-   "exact": "(none better)"
+   "s": 8.000000001507667,
+   "time": 3.597303323000233,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 8.0,
-   "time": 60.00577970299946,
+   "time": 60.0054666319993,
    "method": "grid",
-   "local_opts": 4627,
-   "seeds": 74
+   "local_opts": 3438,
+   "seeds": 60
   },
   "best": {
    "s": 8.0,
@@ -2006,25 +2006,25 @@
   "lower_bound": 7.615773105863909,
   "grid": {
    "s": 8.0,
-   "time": 4.820499998459127e-05
+   "time": 5.125999996380415e-05
   },
   "closed_form": {
    "s": 8.0,
-   "time": 0.0008993139999802224,
+   "time": 0.0011281610004516551,
    "method": "grid",
    "exact": "8"
   },
   "tilted_block": {
-   "s": 8.0,
-   "time": 2.111587897999925,
-   "exact": "(none better)"
+   "s": 8.000000001507734,
+   "time": 2.8860097699998732,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 8.0,
-   "time": 60.01135183899987,
+   "time": 60.0100492319998,
    "method": "grid",
-   "local_opts": 4501,
-   "seeds": 73
+   "local_opts": 3629,
+   "seeds": 58
   },
   "best": {
    "s": 8.0,
@@ -2042,25 +2042,25 @@
   "lower_bound": 7.681145747868608,
   "grid": {
    "s": 8.0,
-   "time": 4.251299924362684e-05
+   "time": 8.695100041222759e-05
   },
   "closed_form": {
    "s": 8.0,
-   "time": 0.0009018250002554851,
+   "time": 0.0016423750003013993,
    "method": "grid",
    "exact": "8"
   },
   "tilted_block": {
-   "s": 8.0,
-   "time": 1.1973148759998367,
-   "exact": "(none better)"
+   "s": 8.00000000150796,
+   "time": 2.29129621300126,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 8.0,
-   "time": 60.002977285999805,
+   "time": 60.0103822910005,
    "method": "grid",
-   "local_opts": 4412,
-   "seeds": 70
+   "local_opts": 3549,
+   "seeds": 57
   },
   "best": {
    "s": 8.0,
@@ -2078,25 +2078,25 @@
   "lower_bound": 7.745966692414834,
   "grid": {
    "s": 8.0,
-   "time": 5.1357999836909585e-05
+   "time": 0.00010545499935687985
   },
   "closed_form": {
    "s": 8.0,
-   "time": 0.0009621529998184997,
+   "time": 0.0015431970005010953,
    "method": "grid",
    "exact": "8"
   },
   "tilted_block": {
-   "s": 8.0,
-   "time": 0.798685762999412,
-   "exact": "(none better)"
+   "s": 8.000000001507814,
+   "time": 1.6599817790011002,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 8.0,
-   "time": 60.001900363999994,
+   "time": 60.00165055599973,
    "method": "grid",
-   "local_opts": 4215,
-   "seeds": 64
+   "local_opts": 3445,
+   "seeds": 54
   },
   "best": {
    "s": 8.0,
@@ -2114,25 +2114,25 @@
   "lower_bound": 7.810249675906654,
   "grid": {
    "s": 8.0,
-   "time": 6.80820003253757e-05
+   "time": 4.603300112648867e-05
   },
   "closed_form": {
    "s": 8.0,
-   "time": 0.0009087600001294049,
+   "time": 0.0011403129992686445,
    "method": "grid",
    "exact": "8"
   },
   "tilted_block": {
-   "s": 8.0,
-   "time": 0.3828316530007214,
-   "exact": "(none better)"
+   "s": 8.000000001507948,
+   "time": 1.5539304100002482,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 8.0,
-   "time": 60.00370873400061,
+   "time": 60.00701433500035,
    "method": "grid",
-   "local_opts": 4026,
-   "seeds": 64
+   "local_opts": 3254,
+   "seeds": 52
   },
   "best": {
    "s": 8.0,
@@ -2150,17 +2150,17 @@
   "lower_bound": 7.874007874011811,
   "grid": {
    "s": 8.0,
-   "time": 5.402000078902347e-05
+   "time": 5.508600042958278e-05
   },
   "closed_form": {
    "s": 8.0,
-   "time": 0.0009018679993459955,
+   "time": 0.0011998780009889742,
    "method": "grid",
    "exact": "8"
   },
   "tilted_block": {
    "s": 8.0,
-   "time": 1.7510001271148212e-06,
+   "time": 2.0619991119019687e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -2184,17 +2184,17 @@
   "lower_bound": 7.937253933193772,
   "grid": {
    "s": 8.0,
-   "time": 6.923000000824686e-05
+   "time": 4.1368999518454075e-05
   },
   "closed_form": {
    "s": 8.0,
-   "time": 0.0008435509998889756,
+   "time": 0.0010695379987737397,
    "method": "grid",
    "exact": "8"
   },
   "tilted_block": {
    "s": 8.0,
-   "time": 1.395000253978651e-06,
+   "time": 1.2499986041802913e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -2218,17 +2218,17 @@
   "lower_bound": 8.0,
   "grid": {
    "s": 8.0,
-   "time": 4.17199998992146e-05
+   "time": 3.428299896768294e-05
   },
   "closed_form": {
    "s": 8.0,
-   "time": 0.0008783180001046276,
+   "time": 0.0010890519988606684,
    "method": "grid",
    "exact": "8"
   },
   "tilted_block": {
    "s": 8.0,
-   "time": 1.6639996829326265e-06,
+   "time": 1.4859997463645414e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -2252,25 +2252,25 @@
   "lower_bound": 8.06225774829855,
   "grid": {
    "s": 9.0,
-   "time": 3.134500002488494e-05
+   "time": 4.214699947624467e-05
   },
   "closed_form": {
    "s": 8.535533905932738,
-   "time": 0.0010469469998497516,
+   "time": 0.26982676399893535,
    "method": "gobel_square",
    "exact": "5 + 5*sqrt(2)/2"
   },
   "tilted_block": {
-   "s": 8.535533905932738,
-   "time": 0.19606522699996276,
-   "exact": "(none better)"
+   "s": 8.535533906341175,
+   "time": 3.361944690999735,
+   "exact": "tilted 5x5 block at 45deg, offset (+0,+0)"
   },
   "numeric": {
    "s": 8.535533905932738,
-   "time": 60.012119357999836,
+   "time": 60.0021181230004,
    "method": "gobel_square",
-   "local_opts": 3860,
-   "seeds": 68
+   "local_opts": 2683,
+   "seeds": 45
   },
   "best": {
    "s": 8.535533905932738,
@@ -2288,33 +2288,33 @@
   "lower_bound": 8.12403840463596,
   "grid": {
    "s": 9.0,
-   "time": 5.2473999858193565e-05
+   "time": 0.0001265560003957944
   },
   "closed_form": {
    "s": 8.707106781186548,
-   "time": 0.0011738210005205474,
+   "time": 0.28053381300014735,
    "method": "gobel_strip+L+L+L",
    "exact": "(((5 + sqrt(2)/2) + 1) + 1) + 1"
   },
   "tilted_block": {
-   "s": 8.656854249907829,
-   "time": 1.2639381520002644,
+   "s": 8.656854249908095,
+   "time": 3.661250031000236,
    "exact": "tilted 3x8 block at 45deg, offset (-0.25,-0.25)"
   },
   "numeric": {
-   "s": 8.656854249907829,
-   "time": 60.009413931999916,
+   "s": 8.656854249908095,
+   "time": 60.0073087439996,
    "method": "tilted_block",
-   "local_opts": 3839,
-   "seeds": 73
+   "local_opts": 2639,
+   "seeds": 49
   },
   "best": {
-   "s": 8.656854249907829,
+   "s": 8.656854249908095,
    "method": "tilted_block",
    "exact": "tilted 3x8 block at 45deg, offset (-0.25,-0.25)",
    "valid": true,
-   "max_penetration": -1.2072565169773952e-12,
-   "max_outside": -2.976641155783e-11
+   "max_penetration": -1.2070344723724702e-12,
+   "max_outside": -2.978584046076094e-11
   }
  },
  {
@@ -2324,25 +2324,25 @@
   "lower_bound": 8.18535277187245,
   "grid": {
    "s": 9.0,
-   "time": 8.085300032689702e-05
+   "time": 4.596799954015296e-05
   },
   "closed_form": {
    "s": 8.707106781186548,
-   "time": 0.0014732669997101766,
+   "time": 0.0014270669998950325,
    "method": "gobel_strip+L",
    "exact": "(7 + sqrt(2)/2) + 1"
   },
   "tilted_block": {
-   "s": 8.707106781186548,
-   "time": 0.6188701060000312,
-   "exact": "(none better)"
+   "s": 8.707106781605193,
+   "time": 4.8351625840005,
+   "exact": "tilted 1x8 block at 45deg, offset (-0.5,-0.5)"
   },
   "numeric": {
    "s": 8.707106781186548,
-   "time": 60.01229845200032,
+   "time": 60.00113487799899,
    "method": "gobel_strip+L",
-   "local_opts": 3850,
-   "seeds": 70
+   "local_opts": 2473,
+   "seeds": 42
   },
   "best": {
    "s": 8.707106781186548,
@@ -2360,32 +2360,32 @@
   "lower_bound": 8.246211251235321,
   "grid": {
    "s": 9.0,
-   "time": 7.807400015735766e-05
+   "time": 5.8339001043350436e-05
   },
   "closed_form": {
-   "s": 8.82842712474619,
-   "time": 0.0012602189999597613,
-   "method": "gobel_square+L+L",
-   "exact": "((4 + 4*sqrt(2)/2) + 1) + 1"
+   "s": 8.822875655532295,
+   "time": 0.001785163000022294,
+   "method": "sqrt7+L",
+   "exact": "(13/2 + sqrt(7)/2) + 1"
   },
   "tilted_block": {
-   "s": 8.82842712474619,
-   "time": 0.4463414219999322,
+   "s": 8.822875655532295,
+   "time": 1.6328995399999258,
    "exact": "(none better)"
   },
   "numeric": {
-   "s": 8.82842712474619,
-   "time": 60.00130565499967,
-   "method": "gobel_square+L+L",
-   "local_opts": 3739,
-   "seeds": 65
+   "s": 8.822875655532295,
+   "time": 60.008248084001025,
+   "method": "sqrt7+L",
+   "local_opts": 2273,
+   "seeds": 38
   },
   "best": {
-   "s": 8.82842712474619,
-   "method": "gobel_square+L+L",
-   "exact": "((4 + 4*sqrt(2)/2) + 1) + 1",
+   "s": 8.822875655532295,
+   "method": "sqrt7+L",
+   "exact": "(13/2 + sqrt(7)/2) + 1",
    "valid": true,
-   "max_penetration": 6.661338147750939e-16,
+   "max_penetration": 8.881784197001252e-16,
    "max_outside": 0.0
   }
  },
@@ -2396,33 +2396,33 @@
   "lower_bound": 8.306623862918075,
   "grid": {
    "s": 9.0,
-   "time": 6.806499914091546e-05
+   "time": 4.7026998799992725e-05
   },
   "closed_form": {
-   "s": 9.0,
-   "time": 0.0013113840004734811,
-   "method": "grid",
-   "exact": "9"
+   "s": 8.84666719284349,
+   "time": 0.0015636250009265495,
+   "method": "devincentis+L",
+   "exact": "(7 - sqrt(2)/2 + sqrt(1 + sqrt(2))) + 1"
   },
   "tilted_block": {
-   "s": 8.914213562803827,
-   "time": 7.7178509879995545,
-   "exact": "tilted 2x8 block at 45deg, offset (-0.75,-0.75)"
+   "s": 8.84666719284349,
+   "time": 1.2275396029999683,
+   "exact": "(none better)"
   },
   "numeric": {
-   "s": 8.857198669053078,
-   "time": 60.00766383999962,
-   "method": "numeric:tilted_block",
-   "local_opts": 3795,
-   "seeds": 64
+   "s": 8.84666719284349,
+   "time": 60.00822361199971,
+   "method": "devincentis+L",
+   "local_opts": 1868,
+   "seeds": 31
   },
   "best": {
-   "s": 8.857198669053078,
-   "method": "numeric:tilted_block",
-   "exact": "",
+   "s": 8.84666719284349,
+   "method": "devincentis+L",
+   "exact": "(7 - sqrt(2)/2 + sqrt(1 + sqrt(2))) + 1",
    "valid": true,
-   "max_penetration": -9.140619372516312e-10,
-   "max_outside": -5.000444502911705e-13
+   "max_penetration": 3.774758283725532e-15,
+   "max_outside": 0.0
   }
  },
  {
@@ -2432,32 +2432,32 @@
   "lower_bound": 8.366600265340756,
   "grid": {
    "s": 9.0,
-   "time": 7.961499977682251e-05
+   "time": 4.958700083079748e-05
   },
   "closed_form": {
    "s": 9.0,
-   "time": 0.001177750000351807,
+   "time": 0.0016491390015289653,
    "method": "grid",
    "exact": "9"
   },
   "tilted_block": {
-   "s": 8.914213562804171,
-   "time": 7.208343125999818,
-   "exact": "tilted 2x9 block at 45deg, offset (+0,+0.5)"
+   "s": 8.914213562804173,
+   "time": 6.728108150999105,
+   "exact": "tilted 2x9 block at 45deg, offset (-0.5,+0)"
   },
   "numeric": {
-   "s": 8.904857441049305,
-   "time": 60.04164193500037,
-   "method": "numeric:tilted_block",
-   "local_opts": 3798,
-   "seeds": 63
+   "s": 8.904291098874527,
+   "time": 60.016991062999296,
+   "method": "numeric:bisect:block",
+   "local_opts": 1627,
+   "seeds": 27
   },
   "best": {
-   "s": 8.904857441049305,
-   "method": "numeric:tilted_block",
+   "s": 8.904291098874527,
+   "method": "numeric:bisect:block",
    "exact": "",
    "valid": true,
-   "max_penetration": -1.212241862447172e-09,
+   "max_penetration": -6.256219098332849e-09,
    "max_outside": -4.991562718714704e-13
   }
  },
@@ -2468,25 +2468,25 @@
   "lower_bound": 8.426149773176359,
   "grid": {
    "s": 9.0,
-   "time": 6.487299924629042e-05
+   "time": 6.316899998637382e-05
   },
   "closed_form": {
    "s": 9.0,
-   "time": 0.0012557329991977895,
+   "time": 0.0018938180000986904,
    "method": "grid",
    "exact": "9"
   },
   "tilted_block": {
-   "s": 9.0,
-   "time": 7.644296039000437,
-   "exact": "(none better)"
+   "s": 9.00000000170897,
+   "time": 7.902922856001169,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 9.0,
-   "time": 60.00079705099961,
+   "time": 60.02237060200059,
    "method": "grid",
-   "local_opts": 3712,
-   "seeds": 60
+   "local_opts": 1652,
+   "seeds": 27
   },
   "best": {
    "s": 9.0,
@@ -2504,25 +2504,25 @@
   "lower_bound": 8.48528137423857,
   "grid": {
    "s": 9.0,
-   "time": 0.00010307800039299764
+   "time": 6.310800017672591e-05
   },
   "closed_form": {
    "s": 9.0,
-   "time": 0.001241786000719003,
+   "time": 0.00153846600005636,
    "method": "grid",
    "exact": "9"
   },
   "tilted_block": {
-   "s": 9.0,
-   "time": 6.128107557000476,
-   "exact": "(none better)"
+   "s": 9.000000001708669,
+   "time": 6.304893467000511,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 9.0,
-   "time": 60.009469997999986,
+   "time": 60.00142574099846,
    "method": "grid",
-   "local_opts": 3633,
-   "seeds": 57
+   "local_opts": 2045,
+   "seeds": 34
   },
   "best": {
    "s": 9.0,
@@ -2540,25 +2540,25 @@
   "lower_bound": 8.54400374531753,
   "grid": {
    "s": 9.0,
-   "time": 5.0229000407853164e-05
+   "time": 5.0116999773308635e-05
   },
   "closed_form": {
    "s": 9.0,
-   "time": 0.0012603669993040967,
+   "time": 0.0015516700004809536,
    "method": "grid",
    "exact": "9"
   },
   "tilted_block": {
-   "s": 9.0,
-   "time": 4.6327379689992085,
-   "exact": "(none better)"
+   "s": 9.00000000170885,
+   "time": 5.057932072000767,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 9.0,
-   "time": 60.00834410799962,
+   "time": 60.00302328300131,
    "method": "grid",
-   "local_opts": 3552,
-   "seeds": 56
+   "local_opts": 2335,
+   "seeds": 38
   },
   "best": {
    "s": 9.0,
@@ -2576,25 +2576,25 @@
   "lower_bound": 8.602325267042627,
   "grid": {
    "s": 9.0,
-   "time": 7.33659999241354e-05
+   "time": 4.764100049214903e-05
   },
   "closed_form": {
    "s": 9.0,
-   "time": 0.0012696849998974358,
+   "time": 0.0015090449996932875,
    "method": "grid",
    "exact": "9"
   },
   "tilted_block": {
-   "s": 9.0,
-   "time": 2.9205397969999467,
-   "exact": "(none better)"
+   "s": 9.00000000170885,
+   "time": 3.9223995880001894,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 9.0,
-   "time": 60.01295435299926,
+   "time": 60.00272868100001,
    "method": "grid",
-   "local_opts": 3066,
-   "seeds": 48
+   "local_opts": 2374,
+   "seeds": 38
   },
   "best": {
    "s": 9.0,
@@ -2612,25 +2612,25 @@
   "lower_bound": 8.660254037844387,
   "grid": {
    "s": 9.0,
-   "time": 6.600599954253994e-05
+   "time": 5.256199983705301e-05
   },
   "closed_form": {
    "s": 9.0,
-   "time": 0.0012163510000391398,
+   "time": 0.0016421130003436701,
    "method": "grid",
    "exact": "9"
   },
   "tilted_block": {
-   "s": 9.0,
-   "time": 2.4820589679993645,
-   "exact": "(none better)"
+   "s": 9.00000000170891,
+   "time": 3.4074643089988967,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 9.0,
-   "time": 60.00515729200015,
+   "time": 60.03964356399956,
    "method": "grid",
-   "local_opts": 3401,
-   "seeds": 48
+   "local_opts": 2473,
+   "seeds": 36
   },
   "best": {
    "s": 9.0,
@@ -2648,25 +2648,25 @@
   "lower_bound": 8.717797887081348,
   "grid": {
    "s": 9.0,
-   "time": 4.999599968869006e-05
+   "time": 5.027399856771808e-05
   },
   "closed_form": {
    "s": 9.0,
-   "time": 0.0015153960002862732,
+   "time": 0.0017850589993031463,
    "method": "grid",
    "exact": "9"
   },
   "tilted_block": {
-   "s": 9.0,
-   "time": 1.749997166999492,
-   "exact": "(none better)"
+   "s": 9.00000000170882,
+   "time": 3.220880164000846,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 9.0,
-   "time": 60.00393370999973,
+   "time": 60.008609315000285,
    "method": "grid",
-   "local_opts": 2940,
-   "seeds": 43
+   "local_opts": 2493,
+   "seeds": 38
   },
   "best": {
    "s": 9.0,
@@ -2684,25 +2684,25 @@
   "lower_bound": 8.774964387392123,
   "grid": {
    "s": 9.0,
-   "time": 5.3454000408237334e-05
+   "time": 0.00010288500016031321
   },
   "closed_form": {
    "s": 9.0,
-   "time": 0.0012199510001664748,
+   "time": 0.0015102170000318438,
    "method": "grid",
    "exact": "9"
   },
   "tilted_block": {
-   "s": 9.0,
-   "time": 0.8666729300002771,
-   "exact": "(none better)"
+   "s": 9.00000000170891,
+   "time": 2.3266657379990647,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 9.0,
-   "time": 60.01049898899964,
+   "time": 60.0201508809987,
    "method": "grid",
-   "local_opts": 3230,
-   "seeds": 44
+   "local_opts": 2378,
+   "seeds": 38
   },
   "best": {
    "s": 9.0,
@@ -2720,25 +2720,25 @@
   "lower_bound": 8.831760866327848,
   "grid": {
    "s": 9.0,
-   "time": 5.2274000154284295e-05
+   "time": 4.844899922318291e-05
   },
   "closed_form": {
    "s": 9.0,
-   "time": 0.0015370189994428074,
+   "time": 0.0014975710000726394,
    "method": "grid",
    "exact": "9"
   },
   "tilted_block": {
-   "s": 9.0,
-   "time": 0.5103623289996904,
-   "exact": "(none better)"
+   "s": 9.00000000170897,
+   "time": 1.794102362000558,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 9.0,
-   "time": 60.00023800300005,
+   "time": 60.022413930000766,
    "method": "grid",
-   "local_opts": 2819,
-   "seeds": 40
+   "local_opts": 2474,
+   "seeds": 39
   },
   "best": {
    "s": 9.0,
@@ -2756,17 +2756,17 @@
   "lower_bound": 8.888194417315589,
   "grid": {
    "s": 9.0,
-   "time": 5.077199966763146e-05
+   "time": 5.3884999942965806e-05
   },
   "closed_form": {
    "s": 9.0,
-   "time": 0.0011505639995448291,
+   "time": 0.0015142469983402407,
    "method": "grid",
    "exact": "9"
   },
   "tilted_block": {
    "s": 9.0,
-   "time": 2.609000148368068e-06,
+   "time": 2.277000021422282e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -2790,17 +2790,17 @@
   "lower_bound": 8.94427190999916,
   "grid": {
    "s": 9.0,
-   "time": 3.72180002159439e-05
+   "time": 3.9074999222066253e-05
   },
   "closed_form": {
    "s": 9.0,
-   "time": 0.0011230110003452864,
+   "time": 0.0015835590002097888,
    "method": "grid",
    "exact": "9"
   },
   "tilted_block": {
    "s": 9.0,
-   "time": 1.315999725193251e-06,
+   "time": 2.2069998522056267e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -2824,17 +2824,17 @@
   "lower_bound": 9.0,
   "grid": {
    "s": 9.0,
-   "time": 5.806199988001026e-05
+   "time": 3.891199958161451e-05
   },
   "closed_form": {
    "s": 9.0,
-   "time": 0.0011441770002420526,
+   "time": 0.0014448459987761453,
    "method": "grid",
    "exact": "9"
   },
   "tilted_block": {
    "s": 9.0,
-   "time": 1.624000105948653e-06,
+   "time": 1.700998836895451e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -2858,25 +2858,25 @@
   "lower_bound": 9.055385138137417,
   "grid": {
    "s": 10.0,
-   "time": 6.430900066334289e-05
+   "time": 9.536099969409406e-05
   },
   "closed_form": {
    "s": 9.535533905932738,
-   "time": 0.0013829150002493407,
+   "time": 0.30423668900039047,
    "method": "gobel_square+L",
    "exact": "(5 + 5*sqrt(2)/2) + 1"
   },
   "tilted_block": {
-   "s": 9.535533905932738,
-   "time": 0.2275404250003703,
-   "exact": "(none better)"
+   "s": 9.535533906400824,
+   "time": 3.750811887999589,
+   "exact": "tilted 5x5 block at 45deg, offset (-0.5,-0.5)"
   },
   "numeric": {
    "s": 9.535533905932738,
-   "time": 60.01798702199994,
+   "time": 60.02507028100081,
    "method": "gobel_square+L",
-   "local_opts": 3049,
-   "seeds": 57
+   "local_opts": 2102,
+   "seeds": 41
   },
   "best": {
    "s": 9.535533905932738,
@@ -2894,25 +2894,25 @@
   "lower_bound": 9.1104335791443,
   "grid": {
    "s": 10.0,
-   "time": 5.465300000651041e-05
+   "time": 7.893100155342836e-05
   },
   "closed_form": {
    "s": 9.707106781186548,
-   "time": 0.0017508030005046749,
+   "time": 0.289326059000814,
    "method": "gobel_strip+L+L+L+L",
    "exact": "((((5 + sqrt(2)/2) + 1) + 1) + 1) + 1"
   },
   "tilted_block": {
    "s": 9.656854249967651,
-   "time": 2.174559577000764,
+   "time": 4.061276784999791,
    "exact": "tilted 3x8 block at 45deg, offset (-0.75,-0.75)"
   },
   "numeric": {
    "s": 9.656854249967651,
-   "time": 60.01837184300075,
+   "time": 60.01997370600111,
    "method": "tilted_block",
-   "local_opts": 2570,
-   "seeds": 49
+   "local_opts": 2011,
+   "seeds": 36
   },
   "best": {
    "s": 9.656854249967651,
@@ -2930,25 +2930,25 @@
   "lower_bound": 9.16515138991168,
   "grid": {
    "s": 10.0,
-   "time": 5.856099960510619e-05
+   "time": 5.313099973136559e-05
   },
   "closed_form": {
    "s": 9.707106781186548,
-   "time": 0.0022702759997628164,
+   "time": 0.0019479739985399647,
    "method": "gobel_strip+L+L",
    "exact": "((7 + sqrt(2)/2) + 1) + 1"
   },
   "tilted_block": {
-   "s": 9.707106781186548,
-   "time": 0.9128537309998137,
-   "exact": "(none better)"
+   "s": 9.707106781664804,
+   "time": 3.6994382180000684,
+   "exact": "tilted 1x8 block at 45deg, offset (-1,-1)"
   },
   "numeric": {
    "s": 9.707106781186548,
-   "time": 60.011052240000026,
+   "time": 60.017310376999376,
    "method": "gobel_strip+L+L",
-   "local_opts": 3001,
-   "seeds": 56
+   "local_opts": 1930,
+   "seeds": 36
   },
   "best": {
    "s": 9.707106781186548,
@@ -2966,33 +2966,33 @@
   "lower_bound": 9.219544457292887,
   "grid": {
    "s": 10.0,
-   "time": 7.661699964955915e-05
+   "time": 5.4074000217951834e-05
   },
   "closed_form": {
-   "s": 9.82842712474619,
-   "time": 0.0018513750001147855,
-   "method": "gobel_square+L+L+L",
-   "exact": "(((4 + 4*sqrt(2)/2) + 1) + 1) + 1"
+   "s": 9.822875655532295,
+   "time": 0.002093349999995553,
+   "method": "sqrt7+L+L",
+   "exact": "((13/2 + sqrt(7)/2) + 1) + 1"
   },
   "tilted_block": {
-   "s": 9.742640687599156,
-   "time": 0.36708004100000835,
-   "exact": "tilted 6x6 block at 45deg, offset (+0,+0.5)"
+   "s": 9.742640687599684,
+   "time": 4.864318230000208,
+   "exact": "tilted 6x6 block at 45deg, offset (-0.5,+0)"
   },
   "numeric": {
-   "s": 9.742640687599156,
-   "time": 60.01411370400001,
+   "s": 9.742640687599684,
+   "time": 60.0103979659998,
    "method": "tilted_block",
-   "local_opts": 2960,
-   "seeds": 50
+   "local_opts": 1890,
+   "seeds": 30
   },
   "best": {
-   "s": 9.742640687599156,
+   "s": 9.742640687599684,
    "method": "tilted_block",
-   "exact": "tilted 6x6 block at 45deg, offset (+0,+0.5)",
+   "exact": "tilted 6x6 block at 45deg, offset (-0.5,+0)",
    "valid": true,
-   "max_penetration": -1.2072565169773952e-12,
-   "max_outside": -2.975297785923203e-11
+   "max_penetration": -1.2068124277675452e-12,
+   "max_outside": -2.978584046076094e-11
   }
  },
  {
@@ -3002,33 +3002,33 @@
   "lower_bound": 9.273618495495704,
   "grid": {
    "s": 10.0,
-   "time": 5.347700061975047e-05
+   "time": 4.671500028052833e-05
   },
   "closed_form": {
-   "s": 9.949747468305834,
-   "time": 0.0015899999998509884,
-   "method": "gobel_square",
-   "exact": "5 + 7*sqrt(2)/2"
+   "s": 9.822875655532295,
+   "time": 0.002035370998783037,
+   "method": "sqrt7",
+   "exact": "17/2 + sqrt(7)/2"
   },
   "tilted_block": {
-   "s": 9.828427125231354,
-   "time": 1.2375169230008396,
-   "exact": "tilted 4x8 block at 45deg, offset (+0,+0)"
+   "s": 9.822875655532295,
+   "time": 1.9956689090013242,
+   "exact": "(none better)"
   },
   "numeric": {
-   "s": 9.828427125231354,
-   "time": 60.007866577999266,
-   "method": "tilted_block",
-   "local_opts": 2940,
-   "seeds": 48
+   "s": 9.822875655532295,
+   "time": 60.03105414299898,
+   "method": "sqrt7",
+   "local_opts": 1595,
+   "seeds": 28
   },
   "best": {
-   "s": 9.828427125231354,
-   "method": "tilted_block",
-   "exact": "tilted 4x8 block at 45deg, offset (+0,+0)",
+   "s": 9.822875655532295,
+   "method": "sqrt7",
+   "exact": "17/2 + sqrt(7)/2",
    "valid": true,
-   "max_penetration": -1.2068124277675452e-12,
-   "max_outside": -2.97646352009906e-11
+   "max_penetration": 1.7763568394002505e-15,
+   "max_outside": 0.0
   }
  },
  {
@@ -3038,32 +3038,32 @@
   "lower_bound": 9.327379053088816,
   "grid": {
    "s": 10.0,
-   "time": 5.9406000218586996e-05
+   "time": 5.473000055644661e-05
   },
   "closed_form": {
    "s": 9.949747468305834,
-   "time": 0.001562698000270757,
+   "time": 0.002171018999433727,
    "method": "gobel_square",
    "exact": "5 + 7*sqrt(2)/2"
   },
   "tilted_block": {
-   "s": 9.86396103116658,
-   "time": 0.7066418410004189,
+   "s": 9.863961031166493,
+   "time": 4.484628914000496,
    "exact": "tilted 4x9 block at 45deg, offset (-0.25,+0.25)"
   },
   "numeric": {
    "s": 9.852139221711685,
-   "time": 60.032163637999474,
+   "time": 60.01084115999947,
    "method": "numeric:tilted_block",
-   "local_opts": 2862,
-   "seeds": 46
+   "local_opts": 1524,
+   "seeds": 28
   },
   "best": {
    "s": 9.852139221711685,
    "method": "numeric:tilted_block",
    "exact": "",
    "valid": true,
-   "max_penetration": -1.7506862626248676e-10,
+   "max_penetration": -1.750681821732769e-10,
    "max_outside": -4.991562718714704e-13
   }
  },
@@ -3074,32 +3074,32 @@
   "lower_bound": 9.38083151964686,
   "grid": {
    "s": 10.0,
-   "time": 4.618700040737167e-05
+   "time": 4.9311000111629255e-05
   },
   "closed_form": {
    "s": 9.949747468305834,
-   "time": 0.0016953569993347628,
+   "time": 0.0021255810006550746,
    "method": "gobel_square",
    "exact": "5 + 7*sqrt(2)/2"
   },
   "tilted_block": {
-   "s": 9.914213562863239,
-   "time": 0.3084992650001368,
+   "s": 9.914213562863699,
+   "time": 5.502056459001324,
    "exact": "tilted 2x11 block at 45deg, offset (-0.25,-0.25)"
   },
   "numeric": {
-   "s": 9.896827354379994,
-   "time": 60.01569824299986,
-   "method": "numeric:tilted_block",
-   "local_opts": 2859,
-   "seeds": 45
+   "s": 9.89593401729774,
+   "time": 60.00543077899965,
+   "method": "numeric:numeric:tilted_block",
+   "local_opts": 1246,
+   "seeds": 20
   },
   "best": {
-   "s": 9.896827354379994,
-   "method": "numeric:tilted_block",
+   "s": 9.89593401729774,
+   "method": "numeric:numeric:tilted_block",
    "exact": "",
    "valid": true,
-   "max_penetration": -3.679723192817619e-12,
+   "max_penetration": -1.5426149246877685e-10,
    "max_outside": -4.991562718714704e-13
   }
  },
@@ -3110,25 +3110,25 @@
   "lower_bound": 9.433981132056603,
   "grid": {
    "s": 10.0,
-   "time": 5.132199930812931e-05
+   "time": 6.856700019852724e-05
   },
   "closed_form": {
    "s": 9.949747468305834,
-   "time": 0.0016667329991832958,
+   "time": 0.0022550639987457544,
    "method": "gobel_square",
    "exact": "5 + 7*sqrt(2)/2"
   },
   "tilted_block": {
-   "s": 9.949747468305834,
-   "time": 0.23738104499989277,
-   "exact": "(none better)"
+   "s": 9.949747468798513,
+   "time": 3.0381521449999127,
+   "exact": "tilted 7x7 block at 45deg, offset (+0,+0)"
   },
   "numeric": {
    "s": 9.949747468305834,
-   "time": 60.009039214999575,
+   "time": 60.01365852799972,
    "method": "gobel_square",
-   "local_opts": 2890,
-   "seeds": 47
+   "local_opts": 1035,
+   "seeds": 14
   },
   "best": {
    "s": 9.949747468305834,
@@ -3146,25 +3146,25 @@
   "lower_bound": 9.486832980505138,
   "grid": {
    "s": 10.0,
-   "time": 7.529199956479715e-05
+   "time": 5.9717000112868845e-05
   },
   "closed_form": {
    "s": 10.0,
-   "time": 0.0019969699997091084,
+   "time": 0.002098113998727058,
    "method": "grid",
    "exact": "10"
   },
   "tilted_block": {
-   "s": 10.0,
-   "time": 8.141402211999775,
-   "exact": "(none better)"
+   "s": 10.000000001909495,
+   "time": 9.892059169000277,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 10.0,
-   "time": 60.01425120699969,
+   "time": 60.00869131200125,
    "method": "grid",
-   "local_opts": 2877,
-   "seeds": 45
+   "local_opts": 1108,
+   "seeds": 15
   },
   "best": {
    "s": 10.0,
@@ -3182,25 +3182,25 @@
   "lower_bound": 9.539392014169456,
   "grid": {
    "s": 10.0,
-   "time": 4.8754000090411864e-05
+   "time": 4.932799856760539e-05
   },
   "closed_form": {
    "s": 10.0,
-   "time": 0.001738650999868696,
+   "time": 0.0022455969992734026,
    "method": "grid",
    "exact": "10"
   },
   "tilted_block": {
-   "s": 10.0,
-   "time": 6.410223824000241,
-   "exact": "(none better)"
+   "s": 10.000000001909967,
+   "time": 6.882396211000014,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 10.0,
-   "time": 60.015701188000094,
+   "time": 60.04502398799923,
    "method": "grid",
-   "local_opts": 2837,
-   "seeds": 40
+   "local_opts": 1393,
+   "seeds": 22
   },
   "best": {
    "s": 10.0,
@@ -3218,25 +3218,25 @@
   "lower_bound": 9.591663046625438,
   "grid": {
    "s": 10.0,
-   "time": 4.8502000026928727e-05
+   "time": 5.758199949923437e-05
   },
   "closed_form": {
    "s": 10.0,
-   "time": 0.0015739549999125302,
+   "time": 0.0021271380010148278,
    "method": "grid",
    "exact": "10"
   },
   "tilted_block": {
-   "s": 10.0,
-   "time": 4.885295598000084,
-   "exact": "(none better)"
+   "s": 10.000000001909866,
+   "time": 6.297808222998356,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 10.0,
-   "time": 60.02010475299994,
+   "time": 60.012622543999896,
    "method": "grid",
-   "local_opts": 2808,
-   "seeds": 35
+   "local_opts": 1664,
+   "seeds": 24
   },
   "best": {
    "s": 10.0,
@@ -3254,25 +3254,25 @@
   "lower_bound": 9.643650760992955,
   "grid": {
    "s": 10.0,
-   "time": 4.7401999836438335e-05
+   "time": 5.159399916010443e-05
   },
   "closed_form": {
    "s": 10.0,
-   "time": 0.0016546880005989806,
+   "time": 0.002072934999887366,
    "method": "grid",
    "exact": "10"
   },
   "tilted_block": {
-   "s": 10.0,
-   "time": 2.9977033969998956,
-   "exact": "(none better)"
+   "s": 10.000000001909832,
+   "time": 4.51969312700021,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 10.0,
-   "time": 60.022912114000064,
+   "time": 60.03066750399921,
    "method": "grid",
-   "local_opts": 2454,
-   "seeds": 33
+   "local_opts": 1772,
+   "seeds": 24
   },
   "best": {
    "s": 10.0,
@@ -3290,25 +3290,25 @@
   "lower_bound": 9.695359714832659,
   "grid": {
    "s": 10.0,
-   "time": 5.8585000260791276e-05
+   "time": 4.9493999540572986e-05
   },
   "closed_form": {
    "s": 10.0,
-   "time": 0.0016655559993523639,
+   "time": 0.002047568999842042,
    "method": "grid",
    "exact": "10"
   },
   "tilted_block": {
-   "s": 10.0,
-   "time": 2.63014115399983,
-   "exact": "(none better)"
+   "s": 10.000000001909967,
+   "time": 4.18248078400029,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 10.0,
-   "time": 60.008735659000195,
+   "time": 60.01478775999931,
    "method": "grid",
-   "local_opts": 2635,
-   "seeds": 37
+   "local_opts": 1904,
+   "seeds": 30
   },
   "best": {
    "s": 10.0,
@@ -3326,25 +3326,25 @@
   "lower_bound": 9.746794344808963,
   "grid": {
    "s": 10.0,
-   "time": 7.012599962763488e-05
+   "time": 0.00010505200043553486
   },
   "closed_form": {
    "s": 10.0,
-   "time": 0.0017504699999335571,
+   "time": 0.002189965000070515,
    "method": "grid",
    "exact": "10"
   },
   "tilted_block": {
-   "s": 10.0,
-   "time": 1.5920166489995609,
-   "exact": "(none better)"
+   "s": 10.0000000019099,
+   "time": 3.461553841998466,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 10.0,
-   "time": 60.01463209299982,
+   "time": 60.01682791999883,
    "method": "grid",
-   "local_opts": 2559,
-   "seeds": 39
+   "local_opts": 1989,
+   "seeds": 27
   },
   "best": {
    "s": 10.0,
@@ -3362,25 +3362,25 @@
   "lower_bound": 9.797958971132712,
   "grid": {
    "s": 10.0,
-   "time": 4.823699964617845e-05
+   "time": 5.136300023877993e-05
   },
   "closed_form": {
    "s": 10.0,
-   "time": 0.0018422600005578715,
+   "time": 0.0021661959999619285,
    "method": "grid",
    "exact": "10"
   },
   "tilted_block": {
-   "s": 10.0,
-   "time": 0.9537316469995858,
-   "exact": "(none better)"
+   "s": 10.0000000019099,
+   "time": 2.9762010850008664,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 10.0,
-   "time": 60.00925391199962,
+   "time": 60.012336305000645,
    "method": "grid",
-   "local_opts": 2577,
-   "seeds": 33
+   "local_opts": 1837,
+   "seeds": 28
   },
   "best": {
    "s": 10.0,
@@ -3398,25 +3398,25 @@
   "lower_bound": 9.848857801796104,
   "grid": {
    "s": 10.0,
-   "time": 5.3884999942965806e-05
+   "time": 5.477600097947288e-05
   },
   "closed_form": {
    "s": 10.0,
-   "time": 0.0015851919997658115,
+   "time": 0.002251674999570241,
    "method": "grid",
    "exact": "10"
   },
   "tilted_block": {
-   "s": 10.0,
-   "time": 0.4843556939995324,
-   "exact": "(none better)"
+   "s": 10.000000001910001,
+   "time": 2.5528777789986634,
+   "exact": "tilted 1x1 block at 45deg, offset (-1.25,-1.25)"
   },
   "numeric": {
    "s": 10.0,
-   "time": 60.00730918299996,
+   "time": 60.01501437099978,
    "method": "grid",
-   "local_opts": 2507,
-   "seeds": 35
+   "local_opts": 1791,
+   "seeds": 25
   },
   "best": {
    "s": 10.0,
@@ -3434,17 +3434,17 @@
   "lower_bound": 9.899494936611665,
   "grid": {
    "s": 10.0,
-   "time": 8.830700062389951e-05
+   "time": 5.449600030260626e-05
   },
   "closed_form": {
    "s": 10.0,
-   "time": 0.0019694669999807957,
+   "time": 0.0020822799997404218,
    "method": "grid",
    "exact": "10"
   },
   "tilted_block": {
    "s": 10.0,
-   "time": 2.251000296382699e-06,
+   "time": 2.1369996829889715e-06,
    "exact": "(none better)"
   },
   "numeric": {
@@ -3468,17 +3468,17 @@
   "lower_bound": 9.9498743710662,
   "grid": {
    "s": 10.0,
-   "time": 4.3494999772519805e-05
+   "time": 7.039699994493276e-05
   },
   "closed_form": {
    "s": 10.0,
-   "time": 0.001537817999633262,
+   "time": 0.0019108850010525202,
    "method": "grid",
    "exact": "10"
   },
   "tilted_block": {
    "s": 10.0,
-   "time": 1.6710000636521727e-06,
+   "time": 1.0879999535973184e-05,
    "exact": "(none better)"
   },
   "numeric": {
@@ -3502,17 +3502,17 @@
   "lower_bound": 10.0,
   "grid": {
    "s": 10.0,
-   "time": 4.11769997299416e-05
+   "time": 3.875800030073151e-05
   },
   "closed_form": {
    "s": 10.0,
-   "time": 0.0014902540006005438,
+   "time": 0.001992429999518208,
    "method": "grid",
    "exact": "10"
   },
   "tilted_block": {
    "s": 10.0,
-   "time": 1.8620003174874e-06,
+   "time": 1.6070007404778153e-06,
    "exact": "(none better)"
   },
   "numeric": {

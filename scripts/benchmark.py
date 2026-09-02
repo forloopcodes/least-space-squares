@@ -93,12 +93,13 @@ def write_markdown(rows, path: Path, budget: float):
                      f"{r['numeric']['s']:.6f} | **{r['best']['s']:.6f}** | {'' if bk is None else f'{bk:.6f}'} | {gap} | "
                      f"{'yes' if r['proved'] else ''} | {r['best']['method']} {form} | {r['tilted_block']['time']:.1f} | {r['numeric']['time']:.1f} |")
     nn = len(rows)
-    def cnt(key):
-        return sum(1 for r in rows if r["best_known"] is not None and r[key]["s"] <= r["best_known"] + 1e-9)
+    def cnt(*keys):  # running minimum over the pipeline stages listed
+        return sum(1 for r in rows if r["best_known"] is not None
+                   and min(r[k]["s"] for k in keys) <= r["best_known"] + 1e-9)
     lines += ["", "## Summary", "",
               f"* n range: {rows[0]['n']}..{rows[-1]['n']} ({nn} values)",
-              f"* matches best known: grid {cnt('grid')}, closed-form {cnt('closed_form')}, "
-              f"+tilted-block {cnt('tilted_block')}, +numeric {cnt('best')} of {nn}",
+              f"* matches best known: grid {cnt('grid')}, +closed-form {cnt('grid', 'closed_form')}, "
+              f"+tilted-block {cnt('grid', 'closed_form', 'tilted_block')}, +numeric {cnt('best')} of {nn}",
               f"* mean gap to best known: {np.mean([r['best']['s'] - r['best_known'] for r in rows if r['best_known'] is not None]):.5f}",
               f"* all packings verified valid: {all(r['best']['valid'] for r in rows)}",
               f"* total time: closed-form {sum(r['closed_form']['time'] for r in rows):.1f}s, "

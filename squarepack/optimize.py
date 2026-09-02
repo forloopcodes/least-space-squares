@@ -926,8 +926,8 @@ def search(n: int, time_budget: float = 30.0, seed: Optional[int] = None,
     try:
         # first: compact the incumbent itself (it may not be locally optimal); cap at a
         # fraction of the budget so that fresh seeds always get their turn
-        cfg = compact_from(best, "numeric:" + incumbent.method, min(deadline, t0 + incumbent_fraction * time_budget))
-        improve(cfg, "numeric:" + incumbent.method)
+        cfg = compact_from(best, (incumbent.method if incumbent.method.startswith("numeric") else "numeric:" + incumbent.method), min(deadline, t0 + incumbent_fraction * time_budget))
+        improve(cfg, (incumbent.method if incumbent.method.startswith("numeric") else "numeric:" + incumbent.method))
 
         k = 0
         while time.time() < deadline:
