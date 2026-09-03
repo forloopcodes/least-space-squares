@@ -230,42 +230,90 @@ def add_L(p: Packing) -> Packing:
 # --------------------------------------------------------------------------- #
 # portfolio of analytic candidates
 # --------------------------------------------------------------------------- #
-def _base_members(n: int) -> List[Packing]:
-    """Family members (full, not truncated) with side below the grid side for n."""
-    from .families import family_members_below   # lazy: families imports this module
+@dataclass
+class Member:
+    """A family member described arithmetically: side, capacity and a builder that
+    constructs the packing only when the member is selected (keeps the portfolio O(n))."""
+    s: float
+    n: int
+    family: str
+    build: Callable[[], Packing]
+
+
+def member_descriptors(n: int) -> List[Member]:
+    """Every family member with side below the grid side for ``n``, without building it."""
+    from .families import member_descriptors as family_descriptors   # lazy: families imports this module
 
     s_grid = grid(n).s
-    out: List[Packing] = list(family_members_below(s_grid, n))
+    out: List[Member] = []
     a = 1
-    while a + 1 + SQRT2 / 2 < s_grid:
-        out.append(gobel_strip_member(a))
+    while a + 1 + SQRT2 / 2 < s_grid - EPS:
+        out.append(Member(a + 1 + SQRT2 / 2, gobel_strip_capacity(a), "gobel_strip", lambda a=a: gobel_strip_member(a)))
         a += 1
     a = 1
-    while a + 1 + SQRT2 / 2 < s_grid:
+    while a + 1 + SQRT2 / 2 < s_grid - EPS:
         b = max(1, math.floor((a - 1) * SQRT2) + 1)
         while b / SQRT2 < a + 1 - EPS:
-            if gobel_square_valid(a, b) and a + 1 + b * SQRT2 / 2 < s_grid:
-                out.append(gobel_square_member(a, b))
+            s = a + 1 + b * SQRT2 / 2
+            if gobel_square_valid(a, b) and s < s_grid - EPS:
+                out.append(Member(s, gobel_square_capacity(a, b), "gobel_square",
+                                  lambda a=a, b=b: gobel_square_member(a, b)))
             b += 1
         a += 1
+    out.extend(family_descriptors(s_grid, n))
     return out
 
 
-def analytic_candidates(n: int) -> List[Packing]:
-    """Every analytic packing for ``n`` that is at least as good as the grid, best first.
+def l_chain(s0: float, n0: int, n: int, s_max: float):
+    """Number of "L" extensions that take a member ``(s0, n0)`` to capacity ``n`` while staying
+    below ``s_max``; returns ``(j, s0 + j)`` or ``None``.  Pure arithmetic (mirrors :func:`add_L`)."""
+    s, m, j = s0, n0, 0
+    while m < n:
+        if s + 1 >= s_max - EPS:
+            return None
+        m += math.floor(s + 1 + EPS) + math.floor(s + EPS)
+        s += 1.0
+        j += 1
+    return j, s
 
-    Each family member is extended by "L"s until it either holds ``n`` squares
-    or its side reaches the grid side (at which point the grid wins anyway).
+
+def add_Ls(p: Packing, j: int) -> Packing:
+    """``add_L`` applied ``j`` times, generating all the extra squares at once (O(n) total)."""
+    if j <= 0:
+        return p
+    s = p.s
+    extra: List[List[float]] = []
+    for i in range(j):
+        si = s + i
+        top = math.floor(si + 1 + EPS)
+        right = math.floor(si + EPS)
+        extra += [[t + 0.5, si + 0.5, 0.0] for t in range(top)]
+        extra += [[si + 0.5, r + 0.5, 0.0] for r in range(right)]
+    arr = np.vstack([p.squares, np.array(extra, dtype=float).reshape(-1, 3)])
+    return Packing(len(arr), s + j, arr, p.method + "+L" * j,
+                   exact=f"({p.exact}) + {j}" if p.exact else "", meta=dict(p.meta, base_n=p.n))
+
+
+def analytic_candidates(n: int, top: int = 6) -> List[Packing]:
+    """The best analytic packings for ``n`` (grid plus the ``top`` best family members, each
+    extended by "L"s as needed), best first.
+
+    Selection is arithmetic: every member contributes its closed-form side and capacity, the
+    number of L extensions is computed from the capacity recurrence, and only the winners are
+    built, so the whole portfolio costs O(n) plus O(sqrt(n)) descriptors.
     """
     s_grid = grid(n).s
+    scored = []
+    for d in member_descriptors(n):
+        r = l_chain(d.s, d.n, n, s_grid)
+        if r is not None:
+            scored.append((r[1], r[0], d))
+    scored.sort(key=lambda t: t[0])
     cands: List[Packing] = [grid(n)]
-    for base in _base_members(n):
-        p = base
-        while p.s < s_grid - EPS:
-            if p.n >= n:
-                cands.append(p.take(n))
-                break
-            p = add_L(p)
+    for s_j, j, d in scored[:top]:
+        p = add_Ls(d.build(), j).take(n)
+        assert abs(p.s - s_j) < 1e-9 and p.n == n
+        cands.append(p)
     cands.sort(key=lambda q: (q.s, q.method != "grid"))
     return cands
 
