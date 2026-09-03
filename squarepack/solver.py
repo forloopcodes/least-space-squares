@@ -144,9 +144,16 @@ class Solution:
                 "squares": self.as_list(degrees)}
 
 
+BLOCK_SEARCH_MAX_N = 2500   # above this the tilted-block search (O(s^2) per candidate) is skipped
+
+
 def solve(n: int, time_budget: float = 0.0, use_cache: bool = True, use_blocks: bool = True,
           seed: Optional[int] = None, verbose: bool = False, save: bool = False) -> Solution:
-    """Find the tightest packing of ``n`` unit squares that the portfolio can produce."""
+    """Find the tightest packing of ``n`` unit squares that the portfolio can produce.
+
+    For ``n > BLOCK_SEARCH_MAX_N`` only the O(n) closed-form stage (and the cache) is used, so
+    ``pack(100000)`` returns in a few seconds; the block search and the numerical search are
+    meant for n up to a few thousand / few hundred respectively."""
     if n < 1:
         raise ValueError("n must be a positive integer")
     cands: List[Packing] = []
@@ -164,7 +171,8 @@ def solve(n: int, time_budget: float = 0.0, use_cache: bool = True, use_blocks: 
     if not proved and best.s > lower + 1e-12:
         # the block search only runs when neither a closed form nor the cache has already
         # reached the best known side (it can only tie a literature record, never beat the cache)
-        if use_blocks and not settled and not (best.method == "grid" and (k + 1) ** 2 - n in (1, 2)):
+        if (use_blocks and n <= BLOCK_SEARCH_MAX_N and not settled
+                and not (best.method == "grid" and (k + 1) ** 2 - n in (1, 2))):
             blk = tilted_block_search(n, s_max=best.s)
             if blk is not None and blk.s < best.s - 1e-9:
                 best = blk

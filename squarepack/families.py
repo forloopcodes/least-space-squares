@@ -439,6 +439,15 @@ def sqrt7_member_53() -> Packing:
                    meta={"m": 7, "extra_angles_deg": (26.598224749160228, 32.012452423751346)})
 
 
+SQRT7_CAPACITY = {4: 18, 5: 27, 6: 39, 7: 53, 8: 68, 9: 86, 10: 105, 11: 127, 12: 151, 13: 176, 14: 204, 15: 234, 16: 265, 17: 299, 18: 334, 19: 372, 20: 412, 21: 453, 22: 497, 23: 543, 24: 590, 25: 640, 26: 692, 27: 745, 28: 801, 29: 859, 30: 918, 31: 980, 32: 1044, 33: 1109, 34: 1177, 35: 1246, 36: 1318, 37: 1392, 38: 1467, 39: 1545, 40: 1625, 41: 1706, 42: 1790, 43: 1876, 44: 1963, 45: 2053, 46: 2145, 47: 2238, 48: 2334, 49: 2431, 50: 2531, 51: 2633, 52: 2736, 53: 2842, 54: 2950, 55: 3059, 56: 3171, 57: 3285, 58: 3400, 59: 3518, 60: 3638, 61: 3759, 62: 3883, 63: 4009, 64: 4136, 65: 4266, 66: 4397, 67: 4531, 68: 4667, 69: 4804, 70: 4944, 71: 5086, 72: 5229, 73: 5375, 74: 5523, 75: 5672, 76: 5824, 77: 5978, 78: 6133, 79: 6291, 80: 6450}
+
+
+def sqrt7_capacity(m: int) -> Optional[int]:
+    """Capacity of the sqrt7 member ``m`` (tabulated for m <= 80; None beyond the table, where the
+    member engine would cost ~0.4 s per m and the family is left out of the O(n) portfolio)."""
+    return SQRT7_CAPACITY.get(m)
+
+
 def family_sqrt7(n: int) -> Optional[Packing]:
     """Smallest sqrt7 family member holding ``n`` squares (None when the grid is at least as good).
 
@@ -674,6 +683,37 @@ FAMILIES = {
     "wainwright": family_wainwright,
     "schadt": family_schadt,
 }
+
+
+def member_descriptors(s_max: float, n: int) -> list:
+    """Lightweight ``(s, capacity, family, builder)`` descriptors of the family members with side
+    below ``s_max`` (each family stops at its first member holding ``n``); nothing is built here."""
+    from .constructions import Member
+    out = []
+    m = 4
+    while sqrt7_side(m) < s_max - EPS:
+        cap = sqrt7_capacity(m)
+        if cap is None:
+            break
+        out.append(Member(sqrt7_side(m), cap, "sqrt7", lambda m=m: sqrt7_member(m)))
+        if cap >= n:
+            break
+        m += 1
+    k = 0
+    while devincentis_side(k) < s_max - EPS:
+        cap = devincentis_capacity(k)
+        out.append(Member(devincentis_side(k), cap, "devincentis", lambda k=k: devincentis_member(k)))
+        if cap >= n:
+            break
+        k += 1
+    if S19 < s_max - EPS:
+        out.append(Member(S19, 19, "wainwright", wainwright_member))
+    for k, (side, cap) in enumerate(((7 + 4 / 7, 50), (13 + 4 / 7, 171))):
+        if side < s_max - EPS:
+            out.append(Member(side, cap, "schadt", lambda k=k: schadt_member(k)))
+            if cap >= n:
+                break
+    return out
 
 
 def family_members_below(s_max: float, n: Optional[int] = None) -> List[Packing]:
