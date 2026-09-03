@@ -225,3 +225,42 @@ engine (`results/block_sweep.md`; most n are settled by the closed forms in mill
 search takes 1–7 s for n ≤ 250 and up to 33 s near n = 300, on one core). The 80
 remaining records are irregular packings found by multi-day simulated-annealing runs (Trump's 11,
 Bidwell's 17, Schadt's and Ellsworth's 2024–2026 records) whose structure no closed form captures.
+
+## 8. Web app (client-side, `web/`)
+
+`web/index.html` is a static page (no build step, no server logic) that runs everything in the
+browser: open it with any static server, e.g.
+
+```bash
+cd web && python -m http.server 8000     # then http://localhost:8000/?n=100000
+```
+
+* **closed forms in JavaScript** (`web/js/families.js`, a port of the Göbel families and the
+  arithmetic member selection): n = 100,000 in ~80 ms and n = 1,000,001 in ~200 ms on one core;
+* **cached best packings** for n ≤ 100 (`web/js/cache.js`, exported from `data/best_packings.json`,
+  verified on export) and the literature record table (`web/js/records.js`);
+* **GPU rendering** with WebGL2 instancing (one draw call for any n; Canvas2D fallback), zoom/pan;
+* **CPU refinement** in a Web Worker (`web/js/packcore.js`, `optimizer.worker.js`): the
+  penalty-energy compaction with L-BFGS and basin hopping, for n up to a few hundred, live updates;
+* **side-by-side panels** with independent method/n, exact `s`, best-known value and gap, density,
+  verification status and timing; JSON download of `[[x, y, angle], …]`.
+
+Regenerate the data modules with `python scripts/export_web.py`.
+
+## 9. Towards n = 100,000 and beyond
+
+`pack(100000)` takes about 4 s in Python (0.08 s in the browser): the closed-form stage selects the
+member arithmetically from the capacity formulas of ~1,400 family members and builds only the
+winner, so it is O(n) plus O(√n) descriptors; the block search is skipped above
+`solver.BLOCK_SEARCH_MAX_N = 2500` and the numerical search is opt-in. For n = 100,000 the Göbel
+square with ten L-extensions gives `s = 316.735` against `⌈√n⌉ = 317` and the area bound
+`√n = 316.228`.
+
+The remaining gap to the area bound is the real mathematical problem for large n: Göbel-type
+constructions waste `Θ(√n)` area (one staircase boundary per 45° block edge), whereas the best
+theoretical constructions waste only `O(n^0.3)` (Erdős–Graham 1975; Chung–Graham 2020 give
+`O(s^{3/5})`, i.e. `O(n^0.3)`), and any construction must waste `Ω(√(s·|s − round(s)|))`
+(Roth–Vaughan 1978). Implementing an explicit Chung–Graham-style construction — nested tilted
+blocks whose staircase boundaries are filled recursively with smaller tilted blocks — is the
+natural next step: it stays O(n) to build and would beat the Göbel families for every
+non-square n once n is large.

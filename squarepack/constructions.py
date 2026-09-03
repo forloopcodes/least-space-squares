@@ -290,7 +290,7 @@ def add_Ls(p: Packing, j: int) -> Packing:
         extra += [[t + 0.5, si + 0.5, 0.0] for t in range(top)]
         extra += [[si + 0.5, r + 0.5, 0.0] for r in range(right)]
     arr = np.vstack([p.squares, np.array(extra, dtype=float).reshape(-1, 3)])
-    return Packing(len(arr), s + j, arr, p.method + "+L" * j,
+    return Packing(len(arr), s + j, arr, p.method + ("+L" if j == 1 else f"+{j}L"),
                    exact=f"({p.exact}) + {j}" if p.exact else "", meta=dict(p.meta, base_n=p.n))
 
 
