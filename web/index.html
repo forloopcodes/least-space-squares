@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Squares in a square — client-side packing lab</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { --bg:#f7f7f5; --panel:#fff; --ink:#1b1b1b; --muted:#666; --line:#ddd; --accent:#2a63c9; --ok:#1a7f37; --warn:#b54708; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; height:100%; background:var(--bg); color:var(--ink); font:14px/1.4 system-ui,-apple-system,Segoe UI,Roboto,sans-serif; }
+  header { display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center; padding:10px 16px; border-bottom:1px solid var(--line); background:var(--panel); }
+  header h1 { font-size:17px; margin:0 12px 0 0; font-weight:600; }
+  header label { display:flex; align-items:center; gap:6px; color:var(--muted); }
+  input[type=number] { width:9.5em; padding:5px 7px; font:inherit; border:1px solid var(--line); border-radius:6px; }
+  select { padding:5px 7px; font:inherit; border:1px solid var(--line); border-radius:6px; background:#fff; }
+  button { padding:6px 12px; font:inherit; border:1px solid var(--line); border-radius:6px; background:#fff; cursor:pointer; }
+  button.primary { background:var(--accent); color:#fff; border-color:var(--accent); }
+  button:disabled { opacity:.5; cursor:default; }
+  main { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:12px 16px; height:calc(100% - 58px); }
+  @media (max-width: 900px) { main { grid-template-columns:1fr; height:auto; } .panel canvas { height:60vw; } }
+  .panel { display:flex; flex-direction:column; background:var(--panel); border:1px solid var(--line); border-radius:10px; overflow:hidden; min-height:420px; }
+  .panel .bar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:8px 10px; border-bottom:1px solid var(--line); }
+  .panel canvas { flex:1; width:100%; min-height:260px; display:block; cursor:grab; touch-action:none; }
+  .panel .stats { display:grid; grid-template-columns:auto 1fr; gap:2px 12px; padding:8px 12px; border-top:1px solid var(--line); font-variant-numeric:tabular-nums; font-size:13px; }
+  .stats b { font-weight:600; color:var(--muted); }
+  .s-value { font-size:16px; font-weight:600; }
+  .gap-ok { color:var(--ok); } .gap-bad { color:var(--warn); }
+  .prog { height:4px; background:#eee; } .prog > div { height:100%; width:0; background:var(--accent); transition:width .2s; }
+  footer { padding:6px 16px 14px; color:var(--muted); font-size:12px; }
+  code { background:#f0f0ee; padding:1px 4px; border-radius:4px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Squares in a square</h1>
+  <label>n <input id="n" type="number" min="1" max="5000000" step="1" value="26"></label>
+  <button id="go" class="primary">Compute both</button>
+  <label><input id="sync" type="checkbox" checked> same n in both panels</label>
+  <span id="env" style="color:var(--muted)"></span>
+</header>
+<main>
+  <section class="panel" id="left"></section>
+  <section class="panel" id="right"></section>
+</main>
+<footer>
+  Everything runs in your browser: the closed-form constructions (grid, Göbel strips and squares with L-extensions) are O(n) and instant for n up to a few million, drawing uses WebGL2 instancing (one draw call), and “Refine” runs the penalty-energy compaction (L-BFGS + basin hopping) in a Web Worker on the CPU for n up to a few hundred. Every displayed packing is checked by an exact separating-axis verifier; “best known” values are the literature records (Friedman / Ellsworth) for n ≤ 324. Scroll to zoom, drag to pan, double-click to fit.
+</footer>
+<script type="module" src="./js/app.js"></script>
+</body>
+</html>
