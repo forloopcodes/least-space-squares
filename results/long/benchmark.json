@@ -1,0 +1,398 @@
+[
+ {
+  "n": 17,
+  "best_known": 4.67553009360455,
+  "proved": false,
+  "lower_bound": 4.123105625617661,
+  "grid": {
+   "s": 5.0,
+   "time": 5.318300009093946e-05
+  },
+  "closed_form": {
+   "s": 4.707106781186548,
+   "time": 0.0002570330007074517,
+   "method": "gobel_strip+L+L",
+   "exact": "((2 + sqrt(2)/2) + 1) + 1"
+  },
+  "tilted_block": {
+   "s": 4.707106781186548,
+   "time": 0.5388254660001621,
+   "exact": "(none better)"
+  },
+  "numeric": {
+   "s": 4.679367104875424,
+   "time": 240.00371108900072,
+   "method": "numeric:bisect:grid",
+   "local_opts": 60262,
+   "seeds": 899
+  },
+  "best": {
+   "s": 4.679367104875424,
+   "method": "numeric:bisect:grid",
+   "exact": "",
+   "valid": true,
+   "max_penetration": -6.6176175650412e-11,
+   "max_outside": -5.009326287108706e-13
+  }
+ },
+ {
+  "n": 28,
+  "best_known": 5.82444461667405,
+  "proved": false,
+  "lower_bound": 5.291502622129181,
+  "grid": {
+   "s": 6.0,
+   "time": 8.060500022111228e-05
+  },
+  "closed_form": {
+   "s": 5.82842712474619,
+   "time": 0.0005645290002576075,
+   "method": "gobel_square",
+   "exact": "3 + 4*sqrt(2)/2"
+  },
+  "tilted_block": {
+   "s": 5.82842712474619,
+   "time": 0.15289146499981143,
+   "exact": "(none better)"
+  },
+  "numeric": {
+   "s": 5.82842712474619,
+   "time": 240.02151318699998,
+   "method": "gobel_square",
+   "local_opts": 37882,
+   "seeds": 689
+  },
+  "best": {
+   "s": 5.82842712474619,
+   "method": "gobel_square",
+   "exact": "3 + 4*sqrt(2)/2",
+   "valid": true,
+   "max_penetration": 1.1102230246251565e-16,
+   "max_outside": 0.0
+  }
+ },
+ {
+  "n": 29,
+  "best_known": 5.93383346267692,
+  "proved": false,
+  "lower_bound": 5.385164807134504,
+  "grid": {
+   "s": 6.0,
+   "time": 0.00022893999994266778
+  },
+  "closed_form": {
+   "s": 6.0,
+   "time": 0.0007370549992629094,
+   "method": "grid",
+   "exact": "6"
+  },
+  "tilted_block": {
+   "s": 6.0,
+   "time": 2.2507387329997073,
+   "exact": "(none better)"
+  },
+  "numeric": {
+   "s": 6.0,
+   "time": 240.0034461640007,
+   "method": "grid",
+   "local_opts": 35932,
+   "seeds": 663
+  },
+  "best": {
+   "s": 6.0,
+   "method": "grid",
+   "exact": "6",
+   "valid": true,
+   "max_penetration": 0.0,
+   "max_outside": 0.0
+  }
+ },
+ {
+  "n": 37,
+  "best_known": 6.59861960924436,
+  "proved": false,
+  "lower_bound": 6.082762530298219,
+  "grid": {
+   "s": 7.0,
+   "time": 4.965500011167023e-05
+  },
+  "closed_form": {
+   "s": 6.707106781186548,
+   "time": 0.0006467060002250946,
+   "method": "gobel_strip+L+L+L+L",
+   "exact": "((((2 + sqrt(2)/2) + 1) + 1) + 1) + 1"
+  },
+  "tilted_block": {
+   "s": 6.62132034385404,
+   "time": 1.418559341999753,
+   "exact": "tilted 3x3 block at 45deg, offset (-1,-0.5)"
+  },
+  "numeric": {
+   "s": 6.62132034385404,
+   "time": 240.0007162439997,
+   "method": "tilted_block",
+   "local_opts": 27669,
+   "seeds": 401
+  },
+  "best": {
+   "s": 6.62132034385404,
+   "method": "tilted_block",
+   "exact": "tilted 3x3 block at 45deg, offset (-1,-0.5)",
+   "valid": true,
+   "max_penetration": -1.2065903831626201e-12,
+   "max_outside": -2.97797342341255e-11
+  }
+ },
+ {
+  "n": 39,
+  "best_known": 6.81072208306864,
+  "proved": false,
+  "lower_bound": 6.244997998398398,
+  "grid": {
+   "s": 7.0,
+   "time": 4.9017000492312945e-05
+  },
+  "closed_form": {
+   "s": 6.82842712474619,
+   "time": 0.0006891149996590684,
+   "method": "gobel_square+L",
+   "exact": "(3 + 4*sqrt(2)/2) + 1"
+  },
+  "tilted_block": {
+   "s": 6.82842712474619,
+   "time": 0.1418447690002722,
+   "exact": "(none better)"
+  },
+  "numeric": {
+   "s": 6.82842712474619,
+   "time": 240.0013419730003,
+   "method": "gobel_square+L",
+   "local_opts": 26658,
+   "seeds": 477
+  },
+  "best": {
+   "s": 6.82842712474619,
+   "method": "gobel_square+L",
+   "exact": "(3 + 4*sqrt(2)/2) + 1",
+   "valid": true,
+   "max_penetration": 1.1102230246251565e-16,
+   "max_outside": 0.0
+  }
+ },
+ {
+  "n": 41,
+  "best_known": 6.9266930944688,
+  "proved": false,
+  "lower_bound": 6.4031242374328485,
+  "grid": {
+   "s": 7.0,
+   "time": 9.602200043445919e-05
+  },
+  "closed_form": {
+   "s": 7.0,
+   "time": 0.0007111369995982386,
+   "method": "grid",
+   "exact": "7"
+  },
+  "tilted_block": {
+   "s": 6.9497474686196545,
+   "time": 4.126280876999772,
+   "exact": "tilted 2x7 block at 45deg, offset (-0.25,-0.25)"
+  },
+  "numeric": {
+   "s": 6.9497474686196545,
+   "time": 240.01123669699973,
+   "method": "tilted_block",
+   "local_opts": 25636,
+   "seeds": 463
+  },
+  "best": {
+   "s": 6.9497474686196545,
+   "method": "tilted_block",
+   "exact": "tilted 2x7 block at 45deg, offset (-0.25,-0.25)",
+   "valid": true,
+   "max_penetration": -1.2074785615823203e-12,
+   "max_outside": -2.976685564703985e-11
+  }
+ },
+ {
+  "n": 50,
+  "best_known": 7.57142857142857,
+  "proved": false,
+  "lower_bound": 7.0710678118654755,
+  "grid": {
+   "s": 8.0,
+   "time": 4.686400006903568e-05
+  },
+  "closed_form": {
+   "s": 7.707106781186548,
+   "time": 0.0008608210000602412,
+   "method": "gobel_strip+L+L+L+L+L",
+   "exact": "(((((2 + sqrt(2)/2) + 1) + 1) + 1) + 1) + 1"
+  },
+  "tilted_block": {
+   "s": 7.621320343913359,
+   "time": 1.7641897120001886,
+   "exact": "tilted 3x3 block at 45deg, offset (-1,-0.5)"
+  },
+  "numeric": {
+   "s": 7.621320343913359,
+   "time": 240.00248438699964,
+   "method": "tilted_block",
+   "local_opts": 19987,
+   "seeds": 356
+  },
+  "best": {
+   "s": 7.621320343913359,
+   "method": "tilted_block",
+   "exact": "tilted 3x3 block at 45deg, offset (-1,-0.5)",
+   "valid": true,
+   "max_penetration": -1.2070344723724702e-12,
+   "max_outside": -2.975952817507732e-11
+  }
+ },
+ {
+  "n": 55,
+  "best_known": 7.94577100750391,
+  "proved": false,
+  "lower_bound": 7.416198487095663,
+  "grid": {
+   "s": 8.0,
+   "time": 0.0002541879994168994
+  },
+  "closed_form": {
+   "s": 8.0,
+   "time": 0.0013006160006625578,
+   "method": "grid",
+   "exact": "8"
+  },
+  "tilted_block": {
+   "s": 8.0,
+   "time": 5.364228641000409,
+   "exact": "(none better)"
+  },
+  "numeric": {
+   "s": 8.0,
+   "time": 240.0040480560001,
+   "method": "grid",
+   "local_opts": 19456,
+   "seeds": 330
+  },
+  "best": {
+   "s": 8.0,
+   "method": "grid",
+   "exact": "8",
+   "valid": true,
+   "max_penetration": 0.0,
+   "max_outside": 0.0
+  }
+ },
+ {
+  "n": 68,
+  "best_known": 8.80345993651653,
+  "proved": false,
+  "lower_bound": 8.246211251235321,
+  "grid": {
+   "s": 9.0,
+   "time": 4.542799979390111e-05
+  },
+  "closed_form": {
+   "s": 8.82842712474619,
+   "time": 0.0013552880000133882,
+   "method": "gobel_square+L+L",
+   "exact": "((4 + 4*sqrt(2)/2) + 1) + 1"
+  },
+  "tilted_block": {
+   "s": 8.82842712474619,
+   "time": 0.48666056799993385,
+   "exact": "(none better)"
+  },
+  "numeric": {
+   "s": 8.82842712474619,
+   "time": 240.01320445400052,
+   "method": "gobel_square+L+L",
+   "local_opts": 15417,
+   "seeds": 274
+  },
+  "best": {
+   "s": 8.82842712474619,
+   "method": "gobel_square+L+L",
+   "exact": "((4 + 4*sqrt(2)/2) + 1) + 1",
+   "valid": true,
+   "max_penetration": 6.661338147750939e-16,
+   "max_outside": 0.0
+  }
+ },
+ {
+  "n": 71,
+  "best_known": 8.94407155757031,
+  "proved": false,
+  "lower_bound": 8.426149773176359,
+  "grid": {
+   "s": 9.0,
+   "time": 4.6909000047890004e-05
+  },
+  "closed_form": {
+   "s": 9.0,
+   "time": 0.0011864620000778814,
+   "method": "grid",
+   "exact": "9"
+  },
+  "tilted_block": {
+   "s": 9.0,
+   "time": 7.494471619999786,
+   "exact": "(none better)"
+  },
+  "numeric": {
+   "s": 9.0,
+   "time": 240.002512475,
+   "method": "grid",
+   "local_opts": 14800,
+   "seeds": 236
+  },
+  "best": {
+   "s": 9.0,
+   "method": "grid",
+   "exact": "9",
+   "valid": true,
+   "max_penetration": 0.0,
+   "max_outside": 0.0
+  }
+ },
+ {
+  "n": 83,
+  "best_known": 9.63482562092335,
+  "proved": false,
+  "lower_bound": 9.1104335791443,
+  "grid": {
+   "s": 10.0,
+   "time": 8.52900002428214e-05
+  },
+  "closed_form": {
+   "s": 9.707106781186548,
+   "time": 0.001673726999797509,
+   "method": "gobel_strip+L+L+L+L",
+   "exact": "((((5 + sqrt(2)/2) + 1) + 1) + 1) + 1"
+  },
+  "tilted_block": {
+   "s": 9.656854249967651,
+   "time": 1.8540223310001238,
+   "exact": "tilted 3x8 block at 45deg, offset (-0.75,-0.75)"
+  },
+  "numeric": {
+   "s": 9.656854249967651,
+   "time": 240.0048380220005,
+   "method": "tilted_block",
+   "local_opts": 11635,
+   "seeds": 216
+  },
+  "best": {
+   "s": 9.656854249967651,
+   "method": "tilted_block",
+   "exact": "tilted 3x8 block at 45deg, offset (-0.75,-0.75)",
+   "valid": true,
+   "max_penetration": -1.2072565169773952e-12,
+   "max_outside": -2.9784175126224e-11
+  }
+ }
+]

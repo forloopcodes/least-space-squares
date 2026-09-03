@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "squarepack"
+version = "0.1.0"
+description = "Tightest known packings of n unit squares in a square: closed-form families, tilted-block search and numerical compaction, all verified."
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.22", "scipy>=1.8"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools]
+packages = ["squarepack"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
