@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">YT Save</string>
+    <string name="share_label">Save to gallery (YT Save)</string>
+    <string name="channel_name">Downloads</string>
+    <string name="preparing">Preparing…</string>
+    <string name="fetching">Fetching video info…</string>
+    <string name="downloading_video">Downloading video (%1$s)…</string>
+    <string name="downloading_audio">Downloading audio…</string>
+    <string name="merging">Merging audio and video…</string>
+    <string name="saving">Saving to gallery…</string>
+    <string name="queued">YT Save: downloading…</string>
+    <string name="no_link">No YouTube link found</string>
+    <string name="storage_denied">Storage permission is needed to save videos</string>
+    <string name="no_streams">No downloadable streams found for this video</string>
+    <string name="saved">Saved to gallery</string>
+    <string name="saved_toast">Saved to gallery: %1$s (%2$s)</string>
+    <string name="failed">Download failed</string>
+    <string name="failed_toast">YT Save failed: %1$s</string>
+    <string name="main_intro">Share any YouTube link to \"Save to gallery (YT Save)\" from the share sheet and the video is saved to your gallery at 480p (or the closest quality available).\n\nYou can also paste a link below.</string>
+    <string name="main_hint">Paste a YouTube link</string>
+    <string name="main_button">Download to gallery</string>
+    <string name="main_folder">Videos are saved in Movies/YT Save.</string>
+</resources>
